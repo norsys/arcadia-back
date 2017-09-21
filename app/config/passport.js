@@ -13,19 +13,19 @@ const setup = () => {
   };
 
   passport.use(new LocalStrategy(options, (email, password, done) => {
-    return models.User.findOne({where: {email: email}})
-        .then(user => {
-          if (!user) return done(null, false);
+    return models.User.findOne({ where: { email: email } })
+      .then(user => {
+        if (!user) return done(null, false);
 
-          const incorrectPassword = util.passwordHash(password) !==
-              user.get({plain: true}).password;
-          if (incorrectPassword) {
-            return done(new errors.BadRequest(errors.Codes.IncorrectPassword));
-          }
+        const incorrectPassword = util.passwordHash(password) !==
+          user.get({ plain: true }).password;
+        if (incorrectPassword) {
+          return done(new errors.BadRequest(errors.Codes.IncorrectPassword));
+        }
 
-          return done(null, user);
-        })
-        .catch(err => done(err));
+        return done(null, user);
+      })
+      .catch(err => done(err));
   }));
 };
 

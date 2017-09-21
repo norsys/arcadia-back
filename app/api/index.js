@@ -1,6 +1,5 @@
-"use strict";
+'use strict';
 
-const config = require('../config/environment');
 const errors = require('../components/errors');
 const auth = require('../components/auth-service.js');
 const v = require('../components/param-validator');
@@ -31,13 +30,13 @@ module.exports = {
   http(apiMethod) {
     return (req, res, next) => {
       apiMethod(mergeParams(req))
-          .then(result => {
-            let statusCode = result.statusCode || 200;
-            let body = result.body || result;
-            delete result.statusCode;
-            res.status(statusCode).json(body);
-          })
-          .catch(err => next(err));
+        .then(result => {
+          let statusCode = result.statusCode || 200;
+          let body = result.body || result;
+          delete result.statusCode;
+          res.status(statusCode).json(body);
+        })
+        .catch(err => next(err));
     };
   },
   checkParams(...checkers) {

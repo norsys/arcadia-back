@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 let v = {};
 v.num = str => !isNaN(parseInt(str, 10));
-v.num.log ='should be a number';
+v.num.log = 'should be a number';
 
 v.str = str => typeof str === 'string';
 v.str.log = 'should be a string';
@@ -32,7 +32,7 @@ v.genChecker = (target, e, ...validators) => {
 v.checkerInvoker = (validators, val) => {
   return validators.reduce((results, vdt) => {
     if (!vdt(val)) results.push(vdt.log);
-    return results
+    return results;
   }, []);
 };
 

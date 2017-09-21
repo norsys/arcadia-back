@@ -15,12 +15,12 @@ const indexFile = file => file === basename;
 const jsFile = file => file.slice(-3) === '.js';
 
 fs
-    .readdirSync(__dirname)
-    .filter(file => !hidden(file) && !indexFile(file) && jsFile(file))
-    .forEach(file => {
-      let model = sequelize['import'](path.join(__dirname, file));
-      db[model.name] = model;
-    });
+  .readdirSync(__dirname)
+  .filter(file => !hidden(file) && !indexFile(file) && jsFile(file))
+  .forEach(file => {
+    let model = sequelize['import'](path.join(__dirname, file));
+    db[model.name] = model;
+  });
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
@@ -34,7 +34,7 @@ db.Sequelize = Sequelize;
 
 db.ensureObject = sequelizeInstance => {
   if (sequelizeInstance.hasOwnProperty('dataValues')) {
-    sequelizeInstance = sequelizeInstance.get({plain: true});
+    sequelizeInstance = sequelizeInstance.get({ plain: true });
   }
   return sequelizeInstance;
 };

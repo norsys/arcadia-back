@@ -1,7 +1,5 @@
 'use strict';
 
-const util = require('../components/util');
-
 module.exports = function (sequelize, DataTypes) {
   const Circuit = sequelize.define('Circuit', {
     started: {
@@ -12,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
   Circuit.associate = function (models) {
-    Circuit.hasMany(models.Response, { as: 'Responses' ,foreignKey: 'response_id'});
-  }
+    Circuit.hasMany(models.Response, { as: 'Responses', foreignKey: 'response_id' });
+  };
   return Circuit;
 };

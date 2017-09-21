@@ -3,17 +3,18 @@
 const express = require('express');
 const path = require('path');
 const swaggerParser = require('swagger-parser');
+const fs = require('fs');
 
 const checkSwaggerSpec = () => {
   const docs = fs
-      .readdirSync(__dirname)
-      .filter(f => /^v\d\.doc\.js$/.test(f))
-      .map(f => require(`./${f}`));
+    .readdirSync(__dirname)
+    .filter(f => /^v\d\.doc\.js$/.test(f))
+    .map(f => require(`./${f}`));
 
   return Promise
-      .all(docs.map(d => swaggerParser.validate(d)))
-      .then(() => [])
-      .catch(err => Promise.resolve([err]))
+    .all(docs.map(d => swaggerParser.validate(d)))
+    .then(() => [])
+    .catch(err => Promise.resolve([err]));
 };
 
 const setupSwaggerDocRoutes = (app, version) => {
@@ -24,7 +25,7 @@ const setupSwaggerDocRoutes = (app, version) => {
   });
 };
 
-const setupSwaggerUi= app => {
+const setupSwaggerUi = app => {
   app.use('/swagger', (req, res, next) => {
     if (req.url === '/') {
       return res.redirect('/swagger?url=doc/v1');

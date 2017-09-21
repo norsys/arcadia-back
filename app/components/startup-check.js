@@ -4,7 +4,7 @@ const logTags = require('./log-tags');
 const checkSwaggerSpec = require('../config/swagger').checkSwaggerSpec;
 const config = require('../config/environment');
 
-const checkEnvVars = _=> {
+const checkEnvVars = () => {
   const checkList = config.checkList || [];
   let errors = [];
 
@@ -17,8 +17,8 @@ const checkEnvVars = _=> {
 
 const checkEnvVar = envName => {
   return (!process.env.hasOwnProperty(envName) || !process.env[envName]) ?
-      `${envName} is required` :
-      false;
+    `${envName} is required` :
+    false;
 };
 
 const printErrors = errors => {
@@ -26,14 +26,14 @@ const printErrors = errors => {
 };
 
 
-module.exports = _=> {
+module.exports = () => {
   let errors = [];
   return Promise.resolve([])
-      .then(() => checkEnvVars())
-      .then(e => errors = errors.concat(e))
-      .then(() => checkSwaggerSpec())
-      .then(e => errors = errors.concat(e))
-      .then(() => {
-        if (errors.length) { printErrors(errors); process.exit(); }
-      });
+    .then(() => checkEnvVars())
+    .then(e => errors = errors.concat(e))
+    .then(() => checkSwaggerSpec())
+    .then(e => errors = errors.concat(e))
+    .then(() => {
+      if (errors.length) { printErrors(errors); process.exit(); }
+    });
 };

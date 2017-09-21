@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const morgan = require('morgan');
 
@@ -9,7 +9,7 @@ const morgan = require('morgan');
 module.exports = () => {
   let tokens = ':method :url :body :status :res[content-length] :response-time ms';
   let options = {
-    'skip': (req, res) => /^\/swagger/.test(req.baseUrl)
+    'skip': (req) => /^\/swagger/.test(req.baseUrl)
   };
 
   if (process.env.NODE_ENV === 'production') {
@@ -17,7 +17,7 @@ module.exports = () => {
   }
 
   // Create a token for request body
-  morgan.token('body', (req, res) => {
+  morgan.token('body', (req) => {
     if (req.method.toUpperCase() === 'POST' || req.method.toUpperCase() === 'PUT') {
       return `[Body] ${JSON.stringify(req.body)}`;
     }

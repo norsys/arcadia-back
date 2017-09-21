@@ -17,7 +17,7 @@ const testHelper = {
   challenge: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 1 },
 
   response: { id: 1, response: 'Lille' },
-  
+
   user: { id: 1, email: 'albator@pirate.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' },
   syncDb() {
     return Promise.resolve()

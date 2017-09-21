@@ -21,7 +21,7 @@ const WeplaError = (statusCode, defaultErrorCode) => {
       errorCode: get(errorCode) ? get(errorCode).code : defaultErrorCode,
       message: message ? message : get(errorCode) ? get(errorCode).message : '',
       errorLogs: errorLogs || []
-    }
+    };
   };
 };
 
@@ -30,16 +30,16 @@ const WeplaError = (statusCode, defaultErrorCode) => {
  */
 let _m = new Map();
 Array.from(require('./error-codes.json'))
-    .forEach(item => {
-      if (item.hasOwnProperty('code')) _m.set(item.code, item)
-    });
+  .forEach(item => {
+    if (item.hasOwnProperty('code')) _m.set(item.code, item);
+  });
 const get = errorCode => _m.get(errorCode);
 const code = errorCode => get(errorCode).code;
 
 module.exports = {
-  NotFound:     WeplaError(404, code('NotFound')),
-  BadRequest:   WeplaError(400, code('BadRequest')),
-  Conflict:     WeplaError(409, code('Conflict')),
+  NotFound: WeplaError(404, code('NotFound')),
+  BadRequest: WeplaError(400, code('BadRequest')),
+  Conflict: WeplaError(409, code('Conflict')),
   Unauthorized: WeplaError(401, code('Unauthorized')),
 
   get: get,

@@ -1,7 +1,5 @@
 'use strict';
 
-const util = require('../components/util');
-
 module.exports = function (sequelize, DataTypes) {
   const Response = sequelize.define('Response', {
     response: {
@@ -11,6 +9,6 @@ module.exports = function (sequelize, DataTypes) {
   });
   Response.associate = function (models) {
     Response.belongsTo(models.Challenge, { foreignKey: 'challenge_id', targetKey: 'id' });
-  }
+  };
   return Response;
 };

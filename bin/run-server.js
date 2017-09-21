@@ -6,7 +6,7 @@ module.exports = (app, port) => {
   return new Promise(resolve => {
     app.listen(port, () => {
       resolve(
-          `${logTags.StartupInfo} Server listening on port ${port} ${process.env.NODE_ENV} mode`
+        `${logTags.StartupInfo} Server listening on port ${port} ${process.env.NODE_ENV} mode`
       );
     });
   });

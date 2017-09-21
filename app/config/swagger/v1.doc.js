@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const pkg = require('../../../package.json');
 const tags = {
@@ -75,12 +75,12 @@ const paths = {
       summary: 'Get user list',
       operationId: 'getUser',
       parameters: [
-        {$ref: '#/parameters/Offset'},
-        {$ref: '#/parameters/Limit'},
-        {$ref: '#/parameters/AccessToken'},
+        { $ref: '#/parameters/Offset' },
+        { $ref: '#/parameters/Limit' },
+        { $ref: '#/parameters/AccessToken' },
       ],
       responses: {
-        200: {description: 'Success'},
+        200: { description: 'Success' },
       }
     },
     post: {
@@ -88,13 +88,13 @@ const paths = {
       summary: 'Create user',
       operationId: 'createUser',
       parameters: [
-        {$ref: '#/parameters/Name'},
-        {$ref: '#/parameters/AccessToken'},
+        { $ref: '#/parameters/Name' },
+        { $ref: '#/parameters/AccessToken' },
       ],
       responses: {
-        201: {description: 'Created'},
-        400: {description: 'Bad Request'},
-        409: {description: 'Conflict'},
+        201: { description: 'Created' },
+        400: { description: 'Bad Request' },
+        409: { description: 'Conflict' },
       }
     }
   },
@@ -104,13 +104,13 @@ const paths = {
       summary: 'Get user by id',
       operationId: 'getUserById',
       parameters: [
-        {$ref: '#/parameters/Id'},
-        {$ref: '#/parameters/AccessToken'},
+        { $ref: '#/parameters/Id' },
+        { $ref: '#/parameters/AccessToken' },
       ],
       responses: {
-        200: {description: 'Success'},
-        400: {description: 'Bad Request'},
-        404: {description: 'Not Found'},
+        200: { description: 'Success' },
+        400: { description: 'Bad Request' },
+        404: { description: 'Not Found' },
       }
     },
     delete: {
@@ -118,13 +118,13 @@ const paths = {
       summary: 'Remove user by id',
       operationId: 'removeUserById',
       parameters: [
-        {$ref: '#/parameters/Id'},
-      {$ref: '#/parameters/AccessToken'},
+        { $ref: '#/parameters/Id' },
+        { $ref: '#/parameters/AccessToken' },
       ],
       responses: {
-        204: {description: 'No Content'},
-        400: {description: 'Bad Request'},
-        404: {description: 'Not Found'},
+        204: { description: 'No Content' },
+        400: { description: 'Bad Request' },
+        404: { description: 'Not Found' },
       }
     },
     put: {
@@ -132,14 +132,14 @@ const paths = {
       summary: 'Update user by id',
       operationId: 'updateUserById',
       parameters: [
-        {$ref: '#/parameters/Id'},
-        {$ref: '#/parameters/Name'},
-        {$ref: '#/parameters/AccessToken'},
+        { $ref: '#/parameters/Id' },
+        { $ref: '#/parameters/Name' },
+        { $ref: '#/parameters/AccessToken' },
       ],
       responses: {
-        200: {description: 'Success'},
-        400: {description: 'Bad Request'},
-        404: {description: 'Not Found'},
+        200: { description: 'Success' },
+        400: { description: 'Bad Request' },
+        404: { description: 'Not Found' },
       }
     }
   },
@@ -149,10 +149,10 @@ const paths = {
       summary: 'login',
       operationId: 'login',
       parameters: [
-        {$ref: '#/parameters/Credentials'}
+        { $ref: '#/parameters/Credentials' }
       ],
       responses: {
-        201: {description: 'Created'},
+        201: { description: 'Created' },
       }
     },
     delete: {
@@ -160,10 +160,10 @@ const paths = {
       summary: 'logout',
       operationId: 'logout',
       parameters: [
-        {$ref: '#/parameters/AccessToken'}
+        { $ref: '#/parameters/AccessToken' }
       ],
       responses: {
-        200: {description: 'Success'},
+        200: { description: 'Success' },
       }
     }
   },
@@ -179,8 +179,8 @@ module.exports = {
       name: pkg.author || 'USER NAME, COMPANY'
     },
     license: {
-      name: "Apache 2.0",
-      url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+      name: 'Apache 2.0',
+      url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
     },
     version: pkg.version || '0.1.0'
   },

@@ -11,12 +11,12 @@ describe('Errors', () => {
 
     before('Request random api', done => {
       request(app)
-          .get(`/${Date.now().toString()}`)
-          .end((err, res) => {
-            if (err) throw err;
-            _res = res;
-            done();
-          });
+        .get(`/${Date.now().toString()}`)
+        .end((err, res) => {
+          if (err) throw err;
+          _res = res;
+          done();
+        });
     });
 
     it('should return 404 status code ', () => {

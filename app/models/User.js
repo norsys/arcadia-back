@@ -39,7 +39,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [6, 50]
       },
       set(val) {
-        this.setDataValue('password', util.passwordHash(val))
+        this.setDataValue('password', util.passwordHash(val));
       }
     },
     accessToken: {
@@ -50,6 +50,6 @@ module.exports = function (sequelize, DataTypes) {
   User.associate = function (models) {
     User.belongsTo(models.Agency, {foreignKey: 'agency_id', targetKey: 'id'});  
     User.belongsTo(models.Circuit, {foreignKey: 'circuit_id', targetKey: 'id'});  
-  }
+  };
   return User;
 };

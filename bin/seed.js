@@ -33,7 +33,7 @@ const categories = [
   { id: 7, quizz_id: 1, name: 'VIE DU GROUPE' },
   { id: 8, quizz_id: 1, name: 'LIEN SOCIAL' },
   { id: 9, quizz_id: 1, name: 'AUDACE' }
-]
+];
 
 const challenges = [
   { id: 1, category_id: 9, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 3 },

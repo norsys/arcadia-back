@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 if (['production', 'development', 'test'].indexOf(process.env.NODE_ENV) === -1) {
   process.env.NODE_ENV = 'development';
