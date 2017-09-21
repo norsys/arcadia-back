@@ -4,10 +4,6 @@ const util = require('../components/util');
 
 module.exports = function (sequelize, DataTypes) {
   const Category = sequelize.define('Category', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
     name: {
       type: DataTypes.STRING
     }
