@@ -4,10 +4,6 @@ const util = require('../components/util');
 
 module.exports = function (sequelize, DataTypes) {
   const Circuit = sequelize.define('Circuit', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
     started: {
       type: DataTypes.BOOLEAN
     },
