@@ -30,13 +30,13 @@ const categories = [
   { id: 4, quizz_id: 1, name: 'PRATIQUES INNOVANTES' },
   { id: 5, quizz_id: 1, name: 'RESTES CONNECTES' },
   { id: 6, quizz_id: 1, name: 'CONSEIL D\'ENTREPRISE' },
-  { id: 7, quizz_id: 1, name: 'VIE DU GROUPE NORSYS' },
+  { id: 7, quizz_id: 1, name: 'VIE DU GROUPE' },
   { id: 8, quizz_id: 1, name: 'LIEN SOCIAL' },
   { id: 9, quizz_id: 1, name: 'AUDACE' }
 ]
 
 const challenges = [
-  { id: 1, category_id: 9, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur norsys et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 3 },
+  { id: 1, category_id: 9, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 3 },
   { id: 2, category_id: 9, question: 'Inviter un collaborateur pour son anniversaire', response: null, isEnable: true, type_id: 1 },
   { id: 3, category_id: 9, question: 'Appeler un contact inconnu pour une anecdote', response: null, isEnable: true, type_id: 1 },
   { id: 4, category_id: 8, question: 'Déterminer l\'agence d\'un collaborateur' },
@@ -49,8 +49,8 @@ const challenges = [
   { id: 11, category_id: 6, question: 'mini quizz ce niveau 2', response: null, isEnable: true, type_id: 3 },
   { id: 12, category_id: 6, question: 'retrouver l\'événement associé à la photo', response: null, isEnable: true, type_id: 5 },
   { id: 13, category_id: 5, question: 'Créer son compte sur rocke', response: null, isEnable: true, type_id: 4 },
-  { id: 14, category_id: 5, question: 'Télécharger applis mobile norsys', response: null, isEnable: true, type_id: 4 },
-  { id: 15, category_id: 5, question: 'Liker une des pages norsys', response: null, isEnable: true, type_id: 1 },
+  { id: 14, category_id: 5, question: 'Télécharger applis mobile', response: null, isEnable: true, type_id: 4 },
+  { id: 15, category_id: 5, question: 'Liker une des pages', response: null, isEnable: true, type_id: 1 },
   { id: 16, category_id: 4, question: 'Citez les 4 piliers du QP', response: null, isEnable: true, type_id: 1 },
   { id: 17, category_id: 4, question: 'Nommer la dernière formation UE', response: null, isEnable: true, type_id: 1 },
   { id: 18, category_id: 4, question: 'Contacter un pirat pour prendre un café?', response: null, isEnable: true, type_id: 1 },
@@ -66,7 +66,7 @@ const challenges = [
 ];
 
 const users = [
-  { email: 'albator@norsys.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' }
+  { email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' }
 ];
 
 
