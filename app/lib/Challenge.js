@@ -31,7 +31,7 @@ const update = (options) => {
   return Promise.resolve()
       .then(() => show(options))
       .then(challenge => {
-        if (!user) throw errors.NotFound();
+        if (!challenge) throw errors.NotFound();
 
         for (let key in options) challenge[key] = options[key]
         return challenge.save();

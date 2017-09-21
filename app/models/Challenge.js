@@ -4,10 +4,6 @@ const util = require('../components/util');
 
 module.exports = function (sequelize, DataTypes) {
   const Challenge = sequelize.define('Challenge', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
     question: {
       type: DataTypes.STRING
     },
