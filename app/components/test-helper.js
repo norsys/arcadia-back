@@ -45,14 +45,31 @@ const testHelper = {
   insertSeed(model, seed) { return model.bulkCreate(seed); },
 
   deleteSeed(model, seed) {
-    return model.destroy({
-      where: {
-        email: {
-          in: seed.map(u => u.email)
-        }
-      },
-      truncate: model !== models.User
-    });
+    let whereCondition = {}
+    let truncateCondition = {}
+    switch (model.name) {
+      case models.User.name:
+        whereCondition = {
+          where: {
+            email: {
+              in: seed.map(u => u.email)
+            }
+          }
+        };
+        truncateCondition = { truncate: model !== models.User }
+        break;
+      case models.Agency.name:
+        whereCondition = {
+          where: {
+            name: {
+              in: seed.map(u => u.name)
+            }
+          }
+        };
+        truncateCondition = { truncate: model !== models.Agency }
+        break;
+    }
+    return model.destroy(whereCondition, truncateCondition);
   },
 
   bindAccessToken(path) {
