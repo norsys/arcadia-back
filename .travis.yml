@@ -9,6 +9,6 @@ install:
 script: npm test
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker build -t "arcadia-back" .
-    fi  
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker build -t "hub-docker.norsys.fr/norsys/arcadia-back" .
+  - docker push hub-docker.norsys.fr/norsys/arcadia-back
