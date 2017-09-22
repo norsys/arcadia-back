@@ -48,8 +48,8 @@ module.exports = function (sequelize, DataTypes) {
   });
   
   User.associate = function (models) {
-    User.belongsTo(models.Agency, {foreignKey: 'agency_id', targetKey: 'id'});  
-    User.belongsTo(models.Circuit, {foreignKey: 'circuit_id', targetKey: 'id'});  
+    User.belongsTo(models.Agency, {foreignKey: 'agenceId', targetKey: 'id'});  
+    User.belongsTo(models.Circuit, {foreignKey: 'circuitId', targetKey: 'id'});  
   };
   return User;
 };

@@ -66,7 +66,7 @@ const challenges = [
 ];
 
 const users = [
-  { email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' }
+  { email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agenceId: 1, city: 'Lille', avatar: 'pirate' }
 ];
 
 

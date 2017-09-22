@@ -22,8 +22,8 @@ const parameters = {
     schema: {
       type: 'object',
       properties: {
-        email: { type: 'string', default: '6pack@wepla.net' },
-        password: { type: 'string', default: '123123' }
+        email: { type: 'string', default: 'albator@pirat.fr' },
+        password: { type: 'string', default: 'albator' }
       }
     }
   },
