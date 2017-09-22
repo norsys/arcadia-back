@@ -1,2 +1,4 @@
 *.spec.js
 *test*
+app/api/index.js
+app/components/param-validator.js
