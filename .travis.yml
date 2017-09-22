@@ -1,6 +1,14 @@
 language: node_js
 node_js:
   - "7"
+services:
+  - docker
+
 install:
   - npm install
 script: npm test
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker build -t "arcadia-back" .
+    fi  
