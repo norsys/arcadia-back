@@ -9,4 +9,5 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 80
-CMD ["PORT=80 npm", "start" ]
+ENV PORT 80
+CMD ["npm", "start" ]
