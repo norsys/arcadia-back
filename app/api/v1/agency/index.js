@@ -7,7 +7,6 @@ const v = require('../../../components/param-validator');
 const e = require('../../../components/errors');
 
 router.get('/',
-  api.isAuthenticated(),
   api.http(ctrl.index));
 
 router.get('/:id',

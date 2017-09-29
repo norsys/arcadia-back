@@ -4,11 +4,14 @@ const models = require('../app/models');
 const logTags = require('../app/components/log-tags');
 
 const agencies = [
-  { id: 1, name: 'Lille' },
+  { id: 1, name: 'Ennevelin' },
   { id: 2, name: 'Nice' },
   { id: 3, name: 'Paris' },
   { id: 4, name: 'Lyon' },
-  { id: 5, name: 'Nantes' }
+  { id: 5, name: 'Nantes' },
+  { id: 6, name: 'Angers' },
+  { id: 7, name: 'Grenoble' },
+  { id: 8, name: 'Marrakech' }
 ];
 
 const types = [
