@@ -11,7 +11,7 @@ describe('/v1/categories', () => {
   before('Sync database', () => helper.syncDb());
 
   describe('GET /v1/categories', () => {
-    let categories = [{ quizz_id: 1, name: 'RH' },];
+    let categories = [{  name: 'RH' },];
     before('Insert seed data', () => helper.insertSeed(models['Category'], categories));
     after('Delete seed data', () => helper.deleteSeed(models['Category'], categories));
 
@@ -31,7 +31,7 @@ describe('/v1/categories', () => {
   });
 
   describe('GET /v1/categories/:id', () => {
-    let categories = [{ id:3,quizz_id: 1, name: 'RH' },];
+    let categories = [{ id:3, name: 'RH' },];
     before('Insert seed data', () => helper.insertSeed(models['Category'], categories));
     after('Delete seed data', () => helper.deleteSeed(models['Category'], categories));
 

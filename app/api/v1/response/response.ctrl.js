@@ -22,7 +22,7 @@ module.exports = {
       .then(response => Object.assign(response, { statusCode: 201 }))
       .catch(err => {
         if (err === errors.code('Conflict'))
-          return Promise.reject(errors.Conflict(`${options.name} is already existed`));
+          return Promise.reject(errors.Conflict(`${options.response} is already existed`));
         throw err;
       });
   },

@@ -8,10 +8,8 @@ module.exports = app => {
   app.use('/v1/users', require('./api/v1/user'));
   app.use('/v1/auth', auth.checkApiKey(), require('./api/v1/auth'));
   app.use('/v1/agencies', require('./api/v1/agency'));
-  app.use('/v1/types', require('./api/v1/type'));
   app.use('/v1/categories', require('./api/v1/category'));
   app.use('/v1/questions', require('./api/v1/question'));
-  app.use('/v1/quizzs', require('./api/v1/quizz'));
   app.use('/v1/responses', require('./api/v1/response'));
   
 

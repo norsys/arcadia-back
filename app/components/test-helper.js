@@ -8,13 +8,10 @@ const app = require('../index');
 const testHelper = {
   agency: { id: 1, name: 'Lille' },
 
-  type: { id: 1, name: 'FREE' },
 
-  quizz: { id: 1, name: 'INTEGRATION' },
+  category: { id: 1, name: 'FONDATION' },
 
-  category: { id: 1, quizz_id: 1, name: 'FONDATION' },
-
-  question: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 1 },
+  question: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, inputType: 'FREE' },
 
   response: { id: 1, response: 'Lille' },
 
@@ -24,8 +21,6 @@ const testHelper = {
       .then(() => syncDatabase({ force: true }))
       .then(() => models.Agency.create(this.agency))
       .then(() => models.User.create(this.user))
-      .then(() => models.Type.create(this.type))
-      .then(() => models.Quizz.create(this.quizz))
       .then(() => models.Category.create(this.category))
       .then(() => models.Question.create(this.question))
       .then(() => models.Response.create(this.response))
