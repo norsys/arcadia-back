@@ -9,8 +9,7 @@ const e = require('../../../components/errors');
 
 router.post('/',
   api.checkParams(
-    v.genChecker('email', e.get('EmailPattern'), v.str, v.email),
-    v.genChecker('password', e.get('PasswordLength'), v.str, v.lenGt(5))),controller.login);
+    v.genChecker('email', e.get('EmailPattern'), v.str, v.email)), controller.login);
 
 router.put('/',
   api.checkParams(v.genChecker('email', v.str, v.email)),

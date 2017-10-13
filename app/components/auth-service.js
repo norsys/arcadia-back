@@ -10,9 +10,7 @@ const validateJwt = expressJwt({ secret: config.accessToken.secret });
 
 module.exports = {
   signToken(userId) {
-    return jwt.sign({ id: userId }, config.accessToken.secret, {
-      expiresIn: config.accessToken.expireSeconds
-    });
+    return jwt.sign({ id: userId }, config.accessToken.secret);
   },
   decodeToken() {
     return (req, res, next) => {

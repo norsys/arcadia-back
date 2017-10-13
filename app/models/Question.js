@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  const Challenge = sequelize.define('Challenge', {
+  const Question = sequelize.define('Question', {
     question: {
       type: DataTypes.STRING
     },
@@ -10,10 +10,10 @@ module.exports = function (sequelize, DataTypes) {
     },
     isEnable: {
       type: DataTypes.BOOLEAN
+    },
+    inputType: {
+      type: DataTypes.ENUM('CAMERA')
     }
   });
-  Challenge.associate = function (models) {
-    Challenge.belongsTo(models.Type, { foreignKey: 'type_id', targetKey: 'id' });
-  };
-  return Challenge;
+  return Question;
 };

@@ -14,7 +14,7 @@ const testHelper = {
 
   category: { id: 1, quizz_id: 1, name: 'FONDATION' },
 
-  challenge: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 1 },
+  question: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, type_id: 1 },
 
   response: { id: 1, response: 'Lille' },
 
@@ -27,7 +27,7 @@ const testHelper = {
       .then(() => models.Type.create(this.type))
       .then(() => models.Quizz.create(this.quizz))
       .then(() => models.Category.create(this.category))
-      .then(() => models.Challenge.create(this.challenge))
+      .then(() => models.Question.create(this.question))
       .then(() => models.Response.create(this.response))
       .then(() => this.login())
       .then(user => this.user = Object.assign(this.user, user));
@@ -71,7 +71,7 @@ const testHelper = {
         };
         truncateCondition = { truncate: model !== models.Agency }
         break;
-      case models.Challenge.name:
+      case models.Question.name:
         whereCondition = {
           where: {
             question: {
@@ -79,7 +79,7 @@ const testHelper = {
             }
           }
         };
-        truncateCondition = { truncate: model !== models.Challenge }
+        truncateCondition = { truncate: model !== models.Question }
         break;
       case models.Category.name:
         whereCondition = {

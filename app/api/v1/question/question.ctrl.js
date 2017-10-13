@@ -1,25 +1,25 @@
 'use strict';
 
-const Challenge = require('../../../lib/Challenge');
+const Question = require('../../../lib/question');
 const errors = require('../../../components/errors');
 
 module.exports = {
   index(options) {
     return Promise.resolve()
-      .then(() => Challenge.index(options));
+      .then(() => Question.index(options));
   },
   show(options) {
     return Promise.resolve()
-      .then(() => Challenge.show(options))
-      .then(challenge => {
-        if (!challenge) return Promise.reject(errors.NotFound('challenge is not found'));
-        return challenge;
+      .then(() => Question.show(options))
+      .then(question => {
+        if (!question) return Promise.reject(errors.NotFound('question is not found'));
+        return question;
       });
   },
   create(options) {
     return Promise.resolve()
-      .then(() => Challenge.create(options))
-      .then(challenge => Object.assign(challenge, { statusCode: 201 }))
+      .then(() => Question.create(options))
+      .then(question => Object.assign(question, { statusCode: 201 }))
       .catch(err => {
         if (err === errors.code('Conflict'))
           return Promise.reject(errors.Conflict(`${options.name} is already existed`));
@@ -28,20 +28,20 @@ module.exports = {
   },
   update(options) {
     return Promise.resolve()
-      .then(() => Challenge.update(options))
+      .then(() => Question.update(options))
       .catch(err => {
         if (err === errors.code('NotFound'))
-          return Promise.reject(errors.NotFound(`challenge id: ${options.id} is not found`));
+          return Promise.reject(errors.NotFound(`question id: ${options.id} is not found`));
         throw err;
       });
   },
   destroy(options) {
     return Promise.resolve()
-      .then(() => Challenge.destroy(options))
+      .then(() => Question.destroy(options))
       .then(() => ({ statusCode: 204 }))
       .catch(err => {
         if (err === errors.code('NotFound'))
-          return Promise.reject(errors.NotFound(`challenge id: ${options.id} is not found`));
+          return Promise.reject(errors.NotFound(`question id: ${options.id} is not found`));
         throw err;
       });
   }

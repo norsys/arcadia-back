@@ -1,7 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const ctrl = require('./challenge.ctrl');
+const ctrl = require('./question.ctrl');
 const api = require('../../');
 const v = require('../../../components/param-validator');
 const e = require('../../../components/errors');

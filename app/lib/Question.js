@@ -7,20 +7,20 @@ const parseStr = str => {
   return isNaN(ret) ? undefined : ret;
 };
 const index = options => {
-  return models['Challenge'].findAll({
+  return models['Question'].findAll({
     limit: parseStr(options.limit),
     offset: parseStr(options.offset)
   });
 };
 const show = options => {
-  return models['Challenge'].findOne({
+  return models['Question'].findOne({
     where: {
       id: parseStr(options.id)
     }
   });
 };
 const create = options => {
-  return models['Challenge'].create(options).catch(err => {
+  return models['Question'].create(options).catch(err => {
     if (err.name === 'SequelizeUniqueConstraintError') {
       return Promise.reject(errors.code('Conflict'));
     }
@@ -30,11 +30,11 @@ const create = options => {
 const update = (options) => {
   return Promise.resolve()
     .then(() => show(options))
-    .then(challenge => {
-      if (!challenge) throw errors.NotFound();
+    .then(question => {
+      if (!question) throw errors.NotFound();
 
-      for (let key in options) challenge[key] = options[key];
-      return challenge.save();
+      for (let key in options) question[key] = options[key];
+      return question.save();
     })
     .then(() => show(options))
     .catch(err => {
@@ -50,7 +50,7 @@ const update = (options) => {
     });
 };
 const destroy = options => {
-  return models['Challenge'].destroy({
+  return models['Question'].destroy({
     where: {
       id: parseStr(options.id)
     }

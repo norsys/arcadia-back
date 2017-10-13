@@ -8,7 +8,8 @@ module.exports = function (sequelize, DataTypes) {
 
   });
   Response.associate = function (models) {
-    Response.belongsTo(models.Challenge, { foreignKey: 'challenge_id', targetKey: 'id' });
+    Response.belongsTo(models.Question, { foreignKey: 'question_id', targetKey: 'id' });
+    Response.belongsTo(models.User, { foreignKey: 'user_id', targetKey: 'id' });
   };
   return Response;
 };

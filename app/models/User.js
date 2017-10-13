@@ -45,11 +45,16 @@ module.exports = function (sequelize, DataTypes) {
     accessToken: {
       type: DataTypes.STRING
     },
+    gameIsStarted: {
+      type: DataTypes.BOOLEAN
+    },
+    startedDate: {
+      type: DataTypes.STRING
+    }
   });
-  
+
   User.associate = function (models) {
-    User.belongsTo(models.Agency, {foreignKey: 'agence_id', targetKey: 'id'});  
-    User.belongsTo(models.Circuit, {foreignKey: 'circuit_id', targetKey: 'id'});  
+    User.belongsTo(models.Agency, { foreignKey: 'agence_id', targetKey: 'id' });
   };
   return User;
 };

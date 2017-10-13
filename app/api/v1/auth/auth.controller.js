@@ -43,7 +43,6 @@ module.exports = {
     return User.changePassword(options.email, newPassword)
       .then(() => {
         return { newPasswrod: newPassword };
-        // todo: send email
       });
   }
 

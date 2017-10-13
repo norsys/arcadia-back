@@ -7,17 +7,17 @@ const models = require('../../../models');
 const helper = require('../../../components/test-helper');
 const errors = require('../../../components/errors');
 
-describe('/v1/challenges', () => {
+describe('/v1/questions', () => {
   before('Sync database', () => helper.syncDb());
 
-  describe('GET /v1/challenges', () => {
-    let challenges = [{ category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
-    before('Insert seed data', () => helper.insertSeed(models['Challenge'], challenges));
-    after('Delete seed data', () => helper.deleteSeed(models['Challenge'], challenges));
+  describe('GET /v1/questions', () => {
+    let questions = [{ category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
+    before('Insert seed data', () => helper.insertSeed(models['Question'], questions));
+    after('Delete seed data', () => helper.deleteSeed(models['Question'], questions));
 
     it('should return 200 status code and array', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/challenges'))
+        .get(helper.bindAccessToken('/v1/questions'))
         .expect(200)
         .end((err, res) => {
           if (err) throw err;
@@ -30,14 +30,14 @@ describe('/v1/challenges', () => {
     });
   });
 
-  describe('GET /v1/challenges/:id', () => {
-    let challenges = [{id:2, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
-    before('Insert seed data', () => helper.insertSeed(models['Challenge'], challenges));
-    after('Delete seed data', () => helper.deleteSeed(models['Challenge'], challenges));
+  describe('GET /v1/questions/:id', () => {
+    let questions = [{id:2, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
+    before('Insert seed data', () => helper.insertSeed(models['Question'], questions));
+    after('Delete seed data', () => helper.deleteSeed(models['Question'], questions));
 
     it('should return 200 status code and an object', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/challenges/2'))
+        .get(helper.bindAccessToken('/v1/questions/2'))
         .expect(200)
         .end((err, res) => {
           if (err) throw err;
@@ -49,7 +49,7 @@ describe('/v1/challenges', () => {
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/challenges/abc'))
+        .get(helper.bindAccessToken('/v1/questions/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -60,7 +60,7 @@ describe('/v1/challenges', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/challenges/999'))
+        .get(helper.bindAccessToken('/v1/questions/999'))
         .expect(404)
         .end((err, res) => {
           if (err) throw err;
@@ -70,14 +70,14 @@ describe('/v1/challenges', () => {
     });
   });
 
-  describe('POST /v1/challenges', () => {
-    let challenges = [{ category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
-    after('Delete seed data', () => helper.deleteSeed(models['Challenge'], challenges));
+  describe('POST /v1/questions', () => {
+    let questions = [{ category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
+    after('Delete seed data', () => helper.deleteSeed(models['Question'], questions));
 
     it('should return 201 status code and new id', done => {
       request(app)
-        .post(helper.bindAccessToken('/v1/challenges'))
-        .send(challenges[0])
+        .post(helper.bindAccessToken('/v1/questions'))
+        .send(questions[0])
         .expect(201)
         .end((err, res) => {
           if (err) throw err;
@@ -89,7 +89,7 @@ describe('/v1/challenges', () => {
 
     it('should return 400 status code on empty name', done => {
       request(app)
-        .post(helper.bindAccessToken('/v1/challenges'))
+        .post(helper.bindAccessToken('/v1/questions'))
         .send({ question: ' ' })
         .expect(400)
         .end((err, res) => {
@@ -100,14 +100,14 @@ describe('/v1/challenges', () => {
     });
   });
 
-  describe('PUT /v1/challenges/:id', () => {
-    let challenges = [{id:2, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
-    before('Insert seed data', () => helper.insertSeed(models['Challenge'], challenges));
-    after('Delete seed data', () => helper.deleteSeed(models['Challenge'], challenges));
+  describe('PUT /v1/questions/:id', () => {
+    let questions = [{id:2, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
+    before('Insert seed data', () => helper.insertSeed(models['Question'], questions));
+    after('Delete seed data', () => helper.deleteSeed(models['Question'], questions));
 
     it('should return 200 status code and an updated object', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/challenges/2'))
+        .put(helper.bindAccessToken('/v1/questions/2'))
         .send({ question: 'Le projet le plus cool ?' })
         .expect(200)
         .end((err, res) => {
@@ -120,7 +120,7 @@ describe('/v1/challenges', () => {
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/challenges/abc'))
+        .put(helper.bindAccessToken('/v1/questions/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -131,7 +131,7 @@ describe('/v1/challenges', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/challenges/999'))
+        .put(helper.bindAccessToken('/v1/questions/999'))
         .send({ question: 'foo' })
         .expect(404)
         .end((err, res) => {
@@ -142,14 +142,14 @@ describe('/v1/challenges', () => {
     });
   });
 
-  describe('DELETE /v1/challenges/:id', () => {
-    let challenges = [{id:100, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
-    before('Insert seed data', () => helper.insertSeed(models['Challenge'], challenges));
-    after('Delete seed data', () => helper.deleteSeed(models['Challenge'], challenges));
+  describe('DELETE /v1/questions/:id', () => {
+    let questions = [{id:100, category_id: 1, question: 'Le projet qui te semble le plus interessant', response: 'toto', isEnable: true, type_id: 1 }];
+    before('Insert seed data', () => helper.insertSeed(models['Question'], questions));
+    after('Delete seed data', () => helper.deleteSeed(models['Question'], questions));
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/challenges/abc'))
+        .delete(helper.bindAccessToken('/v1/questions/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -160,7 +160,7 @@ describe('/v1/challenges', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/challenges/999'))
+        .delete(helper.bindAccessToken('/v1/questions/999'))
         .expect(404)
         .end((err, res) => {
           if (err) throw err;
@@ -171,7 +171,7 @@ describe('/v1/challenges', () => {
 
     it('should return 204 status code', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/challenges/100'))
+        .delete(helper.bindAccessToken('/v1/questions/100'))
         .expect(204)
         .end(done);
     });
