@@ -15,6 +15,7 @@ router.get('/:id',
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
   api.http(ctrl.show));
 
+  
 router.post('/',
   api.isAuthenticated(),
   api.checkParams(v.genChecker('response', e.get('NameLength'), v.lenGt(2))),

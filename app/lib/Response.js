@@ -9,12 +9,16 @@ const parseStr = str => {
 const index = options => {
   return models['Response'].findAll({
     limit: parseStr(options.limit),
-    offset: parseStr(options.offset)
+    offset: parseStr(options.offset),
+    where: {
+      user_id: parseStr(options.user_id)
+    }
   });
 };
 const show = options => {
   return models['Response'].findOne({
     where: {
+      user_id: parseStr(options.user_id),
       id: parseStr(options.id)
     }
   });

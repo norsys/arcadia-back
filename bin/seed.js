@@ -35,7 +35,6 @@ module.exports = () => {
     .then(() => bulkCreate(users, models.User))
     .then(() => bulkCreate(categories, models.Category))
     .then(() => bulkCreate(questions, models.Question))
-    .then(() => bulkCreate([], models.Circuit))
     .then(() => bulkCreate([], models.Response))
     .then(() => `${logTags.StartupInfo} Seed data inserted`);
 };

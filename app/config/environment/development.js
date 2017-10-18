@@ -2,7 +2,7 @@
 
 module.exports = {
   port: process.env.PORT || 3000,
-
+  imagesFolder: '/tmp/',
   database: {
     dialect: 'sqlite',
     storage: 'db.development.sqlite',
