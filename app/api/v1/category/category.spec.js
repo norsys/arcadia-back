@@ -43,7 +43,6 @@ describe('/v1/categories', () => {
           if (err) throw err;
           res.body.should.be.instanceOf(Object);
           res.body.name.should.be.equal("RH");
-          res.body.quizz_id.should.be.equal(1);
           done();
         });
     });

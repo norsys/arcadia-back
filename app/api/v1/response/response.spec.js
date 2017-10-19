@@ -10,14 +10,14 @@ const errors = require('../../../components/errors');
 describe('/v1/responses', () => {
   before('Sync database', () => helper.syncDb());
 
-  describe('GET /v1/responses', () => {
-    let responses = [{ response: '1 2 3 SOLEIL !' }];
+  describe('GET /v1/users/1/responses', () => {
+    let responses = [{ response: '1 2 3 SOLEIL !', user_id: 1 }];
     before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
     after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
 
     it('should return 200 status code and array', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/responses'))
+        .get(helper.bindAccessToken('/v1/users/1/responses'))
         .expect(200)
         .end((err, res) => {
           if (err) throw err;
@@ -31,13 +31,13 @@ describe('/v1/responses', () => {
   });
 
   describe('GET /v1/responses/:id', () => {
-    let responses = [{ id: 2, response: '1 2 3 SOLEIL !' }];
+    let responses = [{ id: 2, response: '1 2 3 SOLEIL !', user_id: 1 }];
     before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
     after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
 
     it('should return 200 status code and an object', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/responses/2'))
+        .get(helper.bindAccessToken('/v1/users/1/responses/2'))
         .expect(200)
         .end((err, res) => {
           if (err) throw err;
@@ -49,7 +49,7 @@ describe('/v1/responses', () => {
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/responses/abc'))
+        .get(helper.bindAccessToken('/v1/users/1/responses/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -60,7 +60,7 @@ describe('/v1/responses', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .get(helper.bindAccessToken('/v1/responses/999'))
+        .get(helper.bindAccessToken('/v1/users/1/responses/999'))
         .expect(404)
         .end((err, res) => {
           if (err) throw err;
@@ -71,12 +71,12 @@ describe('/v1/responses', () => {
   });
 
   describe('POST /v1/responses', () => {
-    let responses = [{ response: '1 2 3 SOLEIL !' }];
+    let responses = [{ response: '1 2 3 SOLEIL !', user_id: 1 }];
     after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
 
     it('should return 201 status code and new id', done => {
       request(app)
-        .post(helper.bindAccessToken('/v1/responses'))
+        .post(helper.bindAccessToken('/v1/users/1/responses'))
         .send(responses[0])
         .expect(201)
         .end((err, res) => {
@@ -89,7 +89,7 @@ describe('/v1/responses', () => {
 
     it('should return 400 status code on empty name', done => {
       request(app)
-        .post(helper.bindAccessToken('/v1/responses'))
+        .post(helper.bindAccessToken('/v1/users/1/responses'))
         .send({ response: ' ' })
         .expect(400)
         .end((err, res) => {
@@ -101,13 +101,13 @@ describe('/v1/responses', () => {
   });
 
   describe('PUT /v1/responses/:id', () => {
-    let responses = [{ id: 2, response: '1 2 3 SOLEIL !' } ];
+    let responses = [{ id: 2, response: '1 2 3 SOLEIL !', user_id: 1 }];
     before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
     after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
 
     it('should return 200 status code and an updated object', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/responses/2'))
+        .put(helper.bindAccessToken('/v1/users/1/responses/2'))
         .send({ response: '123SOLEIL!' })
         .expect(200)
         .end((err, res) => {
@@ -120,7 +120,7 @@ describe('/v1/responses', () => {
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/responses/abc'))
+        .put(helper.bindAccessToken('/v1/users/1/responses/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -131,7 +131,7 @@ describe('/v1/responses', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .put(helper.bindAccessToken('/v1/responses/999'))
+        .put(helper.bindAccessToken('/v1/users/1/responses/999'))
         .send({ response: 'foo' })
         .expect(404)
         .end((err, res) => {
@@ -143,13 +143,13 @@ describe('/v1/responses', () => {
   });
 
   describe('DELETE /v1/responses/:id', () => {
-    let responses = [{ "id": 100, response: '1 2 3 SOLEIL !' }];
+    let responses = [{ "id": 100, response: '1 2 3 SOLEIL !', user_id: 1 }];
     before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
     after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
 
     it('should return 400 status code on invalid id', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/responses/abc'))
+        .delete(helper.bindAccessToken('/v1/users/1/responses/abc'))
         .expect(400)
         .end((err, res) => {
           if (err) throw err;
@@ -160,7 +160,7 @@ describe('/v1/responses', () => {
 
     it('should return 404 status code on no id', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/responses/999'))
+        .delete(helper.bindAccessToken('/v1/users/1/responses/999'))
         .expect(404)
         .end((err, res) => {
           if (err) throw err;
@@ -171,7 +171,7 @@ describe('/v1/responses', () => {
 
     it('should return 204 status code', done => {
       request(app)
-        .delete(helper.bindAccessToken('/v1/responses/100'))
+        .delete(helper.bindAccessToken('/v1/users/1/responses/100'))
         .expect(204)
         .end(done);
     });

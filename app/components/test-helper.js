@@ -13,7 +13,7 @@ const testHelper = {
 
   question: { id: 1, category_id: 1, question: 'C\'est la saint xxx, A toi de jouer en trouvant un collaborateur et en lui souhaitant sa fête ?', response: 'toto', isEnable: true, inputType: 'FREE' },
 
-  response: { id: 1, response: 'Lille' },
+  response: { id: 1, response: 'Lille', user_id: 1 },
 
   user: { id: 1, email: 'albator@pirate.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' },
   syncDb() {
@@ -86,16 +86,6 @@ const testHelper = {
         };
         truncateCondition = { truncate: model !== models.Category }
         break;
-      case models.Type.name:
-        whereCondition = {
-          where: {
-            name: {
-              in: seed.map(u => u.name)
-            }
-          }
-        };
-        truncateCondition = { truncate: model !== models.Type }
-        break;
       case models.Response.name:
         whereCondition = {
           where: {
@@ -105,16 +95,6 @@ const testHelper = {
           }
         };
         truncateCondition = { truncate: model !== models.Response }
-        break;
-      case models.Quizz.name:
-        whereCondition = {
-          where: {
-            name: {
-              in: seed.map(u => u.name)
-            }
-          }
-        };
-        truncateCondition = { truncate: model !== models.Quizz }
         break;
     }
     return model.destroy(whereCondition, truncateCondition);
