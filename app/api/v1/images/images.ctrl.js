@@ -4,22 +4,24 @@ const config = require('../../../config/environment');
 const path = require('path');
 module.exports = {
 
-  show(req, res, options) {
-    console.log(options);
+  show(req, res) {
+    console.log(req.params.name);
     try {
-      var image = fs.readFileSync(path.join(config.imageFolder, options.name));
+      var image = fs.readFileSync(path.join(config.imagesFolder, req.params.name));
+
       res.writeHead(200, {
-        'Content-Type': 'image/png',
+        'Content-Type': 'image',
         'Content-Length': image.length
       });
-      res.end(image);
+      res.end(image, 'binary');
+
     } catch (err) {
+      console.log(err);
       res.writeHead(500);
     }
   },
   create(options) {
-    var base64Data = options.image.replace(/^data:image\/jpeg;base64,/, '');
-    console.log(path.join(config.imagesFolder, options.name));
+    var base64Data = options.image.replace(/^data:image\/.*;base64,/, '');
     try {
       fs.writeFileSync(path.join(config.imagesFolder, options.name), base64Data, 'base64');
       return Promise.resolve()

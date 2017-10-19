@@ -6,7 +6,7 @@ const api = require('../../');
 
 router.get('/:name',
   api.isAuthenticated(),
-  api.http(ctrl.show));
+  ctrl.show);
 
 router.post('/',
   api.isAuthenticated(),

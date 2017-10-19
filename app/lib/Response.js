@@ -11,14 +11,14 @@ const index = options => {
     limit: parseStr(options.limit),
     offset: parseStr(options.offset),
     where: {
-      user_id: parseStr(options.user_id)
+      user_id: parseStr(options.context.user.id)
     }
   });
 };
 const show = options => {
   return models['Response'].findOne({
     where: {
-      user_id: parseStr(options.user_id),
+      user_id: parseStr(options.context.user.id),
       id: parseStr(options.id)
     }
   });
