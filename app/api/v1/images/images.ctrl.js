@@ -29,7 +29,7 @@ module.exports = {
       im.resize({
         srcData: fs.readFileSync(path.join(config.imagesFolder, options.name + '.tmp'), 'binary'),
         width:   256
-      }, function(err, stdout, stderr){
+      }, function(err, stdout){
         if (err) throw err;
         fs.writeFileSync(path.join(config.imagesFolder, options.name), stdout, 'binary');
         console.log('resized image to fit within 256x256px');
