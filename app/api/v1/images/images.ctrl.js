@@ -2,6 +2,8 @@
 const fs = require('fs');
 const config = require('../../../config/environment');
 const path = require('path');
+const im = require('imagemagick');
+
 module.exports = {
 
   show(req, res) {
@@ -23,10 +25,19 @@ module.exports = {
   create(options) {
     var base64Data = options.image.replace(/^data:image\/.*;base64,/, '');
     try {
-      fs.writeFileSync(path.join(config.imagesFolder, options.name), base64Data, 'base64');
+      fs.writeFileSync(path.join(config.imagesFolder, options.name + '.tmp'), base64Data, 'base64');
+      im.resize({
+        srcData: fs.readFileSync(path.join(config.imagesFolder, options.name + '.tmp'), 'binary'),
+        width:   256
+      }, function(err, stdout, stderr){
+        if (err) throw err;
+        fs.writeFileSync(path.join(config.imagesFolder, options.name), stdout, 'binary');
+        console.log('resized image to fit within 256x256px');
+      });
       return Promise.resolve()
         .then(() => Object.assign({ statusCode: 200 }));
     } catch (err) {
+      console.log(err);
       return Promise.resolve()
         .then(() => Object.assign({ statusCode: 500 }));
     }
