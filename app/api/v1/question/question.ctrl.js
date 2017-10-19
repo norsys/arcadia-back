@@ -1,6 +1,6 @@
 'use strict';
 
-const Question = require('../../../lib/question');
+const Question = require('../../../lib/Question');
 const errors = require('../../../components/errors');
 
 module.exports = {
