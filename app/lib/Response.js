@@ -19,7 +19,7 @@ const show = options => {
   return models['Response'].findOne({
     where: {
       user_id: parseStr(options.context.user.id),
-      id: parseStr(options.id)
+      question_id: parseStr(options.question_id)
     }
   });
 };
