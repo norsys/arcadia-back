@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     lastName: {
       type: DataTypes.STRING
     },
-    nickname: {
+    nickName: {
       type: DataTypes.STRING
     },
     sex: {

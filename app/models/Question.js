@@ -8,9 +8,6 @@ module.exports = function (sequelize, DataTypes) {
     response: {
       type: DataTypes.STRING
     },
-    isEnable: {
-      type: DataTypes.BOOLEAN
-    },
     inputType: {
       type: DataTypes.ENUM('CAMERA')
     }

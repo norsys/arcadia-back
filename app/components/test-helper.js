@@ -15,7 +15,7 @@ const testHelper = {
 
   response: { id: 1, response: 'Lille', user_id: 1 },
 
-  user: { id: 1, email: 'albator@pirate.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' },
+  user: { id: 1, email: 'albator@pirate.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', sex: 'M', agency_id: 1, city: 'Lille', avatar: 'pirate' },
   syncDb() {
     return Promise.resolve()
       .then(() => syncDatabase({ force: true }))

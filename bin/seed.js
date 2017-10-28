@@ -15,15 +15,41 @@ const agencies = [
 ];
 
 const categories = [
-  { id: 1, name: 'LIEN SOCIAL' }
+  { id: 1, name: 'CONVIVALITE' },
+  { id: 2, name: 'BUSINESS AGENCE' },
+  { id: 3, name: 'PRATIQUES' },
+  { id: 4, name: 'CONNEXION' },
+  { id: 5, name: 'FONDATION' },
+  { id: 6, name: 'VIE DE GROUPE' },
+  { id: 7, name: 'RH' }
 ];
 
 const questions = [
-  { id: 1, category_id: 1, question: 'Take a capture with Sylvain !', response: null, isEnable: true, inputType: 'CAMERA' }
+  { id: 1, category_id: 1, question: 'Prends un café avec ton voisin', response: null, inputType: 'CAMERA' },
+  { id: 2, category_id: 1, question: 'Prendre une photo d\'un déjeuner en équipe', response: null, inputType: 'CAMERA' },
+  { id: 3, category_id: 1, question: 'Quel est la passion commune que tu partages avec ton parrain', response: null, inputType: 'TEXT' },
+  { id: 4, category_id: 2, question: 'Selfie avec ton IA', response: null, inputType: 'CAMERA' },
+  { id: 5, category_id: 2, question: 'Cite les 3 projets en cours + ton préféré', response: null, inputType: 'TEXT' },
+  { id: 6, category_id: 2, question: 'Cites 3 plus petits clients de ton agence', response: null, inputType: 'TEXT' },
+  { id: 7, category_id: 3, question: 'Citez les 4 piliers du QP', response: null, inputType: 'TEXT' },
+  { id: 8, category_id: 3, question: 'Nommer la dernière formation UE', response: null, inputType: 'TEXT' },
+  { id: 9, category_id: 3, question: 'Contacter un pirat pour  ?', response: null, inputType: 'TEXT' },
+  { id: 10, category_id: 4, question: 'Créer son compte sur rocket', response: null, inputType: 'TEXT' },
+  { id: 11, category_id: 4, question: 'Télécharger applis mobile norsys', response: null, inputType: 'TEXT' },
+  { id: 12, category_id: 4, question: 'Liker une des pages norsys', response: null, inputType: 'TEXT' },
+  { id: 13, category_id: 5, question: 'Nommer un membre du bureau fondation', response: null, inputType: 'TEXT' },
+  { id: 14, category_id: 5, question: 'Contacter anne pour les actions en cours', response: null, inputType: 'TEXT' },
+  { id: 15, category_id: 5, question: 'Le projet qui te semble le plus interessant', response: null, inputType: 'TEXT' },
+  { id: 16, category_id: 6, question: 'Quel est l\'objet du kit d\'intégration que tu préfères ?', response: null, inputType: 'TEXT' },
+  { id: 17, category_id: 6, question: 'Rébus sur les CRA ?', response: null, inputType: 'TEXT' },
+  { id: 18, category_id: 6, question: 'EN %, combien de personnes ont suivi une formation en 2016 ?', response: null, inputType: 'TEXT' },
+  { id: 19, category_id: 7, question: 'Cites le nom de la RH agence ?', response: null, inputType: 'TEXT' },
+  { id: 20, category_id: 7, question: 'Cites au moins 3 vidéos norsys ?', response: null, inputType: 'TEXT' },
+  { id: 21, category_id: 7, question: 'Cites un dispositif mis en place au sein de norsys pour favoriser l\'équilibre vie pro/vie perso ?', response: null, inputType: 'TEXT' }
 ];
 
 const users = [
-  { email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickname: 'albator', sex: 'M', agence_id: 1, city: 'Lille', avatar: 'avatar-1' }
+  { id: 1, email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', sex: 'M', agence_id: 1, city: 'Lille', avatar: 'avatar-1' }
 ];
 
 

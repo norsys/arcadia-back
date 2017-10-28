@@ -11,7 +11,7 @@ describe('/v1/users', () => {
   before('Sync database', () => helper.syncDb());
 
   describe('GET /v1/users', () => {
-    let users = [{"firstName":"Vinson","lastName":"Shelley","nickname":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"},{"firstName":"Burch","lastName":"Cullen","nickname":"Duran","sex":"F","agenceId":4,"city":"Germersheim","avatar":"Fusce","email":"egestas@quam.ca"},{"firstName":"Bell","lastName":"Sade","nickname":"Mcintosh","sex":"F","agenceId":4,"city":"Hartford","avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];    
+    let users = [{"firstName":"Vinson","lastName":"Shelley","nickName":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"},{"firstName":"Burch","lastName":"Cullen","nickName":"Duran","sex":"F","agenceId":4,"city":"Germersheim","avatar":"Fusce","email":"egestas@quam.ca"},{"firstName":"Bell","lastName":"Sade","nickName":"Mcintosh","sex":"F","agenceId":4,"city":"Hartford","avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];    
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -33,7 +33,7 @@ describe('/v1/users', () => {
   });
 
   describe('GET /v1/users/:id', () => {
-    let users = [{"id":2,"firstName":"Vinson","lastName":"Shelley","nickname":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"},{"firstName":"Burch","lastName":"Cullen","nickname":"Duran","sex":"F","agenceId":4,"city":"Germersheim","avatar":"Fusce","email":"egestas@quam.ca"},{"firstName":"Bell","lastName":"Sade","nickname":"Mcintosh","sex":"F","agenceId":4,"city":"Hartford","avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];    
+    let users = [{"id":2,"firstName":"Vinson","lastName":"Shelley","nickName":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"},{"firstName":"Burch","lastName":"Cullen","nickName":"Duran","sex":"F","agenceId":4,"city":"Germersheim","avatar":"Fusce","email":"egestas@quam.ca"},{"firstName":"Bell","lastName":"Sade","nickName":"Mcintosh","sex":"F","agenceId":4,"city":"Hartford","avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];    
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -73,7 +73,7 @@ describe('/v1/users', () => {
   });
 
   describe('POST /v1/users', () => {
-    let users = [{"firstName":"Vinson","lastName":"Shelley","nickname":"Johnston","sex":"F","city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
+    let users = [{"firstName":"Vinson","lastName":"Shelley","nickName":"Johnston","sex":"F","city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
     it('should return 201 status code and new id', done => {
@@ -115,7 +115,7 @@ describe('/v1/users', () => {
   });
 
   describe('PUT /v1/users/:id', () => {
-    let users = [{"id":100,"firstName":"toto","lastName":"Shelley","nickname":"Johnston","sex":"F",agency_id:1,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
+    let users = [{"id":100,"firstName":"toto","lastName":"Shelley","nickName":"Johnston","sex":"F",agency_id:1,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -157,7 +157,7 @@ describe('/v1/users', () => {
   });
 
   describe('DELETE /v1/users/:id', () => {
-    let users = [{id:2,"firstName":"Vinson","lastName":"Shelley","nickname":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
+    let users = [{id:2,"firstName":"Vinson","lastName":"Shelley","nickName":"Johnston","sex":"F","agenceId":5,"city":"Deerlijk","avatar":"mi","email":"mauris@feugiat.co.uk"}];    
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
