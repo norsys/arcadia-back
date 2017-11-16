@@ -37,7 +37,10 @@ module.exports = {
         return { user: user };
       });
   },
-
+    
+  isAlive() {
+    return auth.isAuthenticated();
+  },
   resetPassword(options) {
     const newPassword = crypto.randomBytes(3).toString('hex');
     return User.changePassword(options.email, newPassword)

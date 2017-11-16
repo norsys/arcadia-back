@@ -11,6 +11,10 @@ router.post('/',
   api.checkParams(
     v.genChecker('email', e.get('EmailPattern'), v.str, v.email)), controller.login);
 
+router.get('/',
+  api.checkParams(
+    v.genChecker('email', e.get('EmailPattern'), v.str, v.email)), controller.isAlive);
+  
 router.put('/',
   api.checkParams(v.genChecker('email', v.str, v.email)),
   api.http(controller.resetPassword));
