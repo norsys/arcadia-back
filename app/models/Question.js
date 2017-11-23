@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     inputType: {
-      type: DataTypes.ENUM('CAMERA')
+      type: DataTypes.ENUM('CAMERA','TEXT')
     }
   });
   return Question;
