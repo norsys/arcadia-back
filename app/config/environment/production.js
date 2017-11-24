@@ -11,7 +11,7 @@ module.exports = {
     port: process.env.DB_PORT ||32217,
     dialect: 'mysql',
     logging: false,
-    syncForce: true
+    syncForce: false
   },
 
   apiKey: process.env.API_KEY || 'arcadia_backApiKey',

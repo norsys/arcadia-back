@@ -10,4 +10,5 @@ COPY . /usr/src/app
 
 EXPOSE 80
 ENV PORT 80
+
 CMD ["npm", "start" ]
