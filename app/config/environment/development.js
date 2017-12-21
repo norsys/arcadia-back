@@ -7,7 +7,7 @@ module.exports = {
     dialect: 'sqlite',
     storage: 'db.development.sqlite',
     logging: console.log,
-    syncForce: true
+    syncForce: false
   },
 
   accessToken: {

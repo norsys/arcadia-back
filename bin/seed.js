@@ -2,6 +2,10 @@
 
 const models = require('../app/models');
 const logTags = require('../app/components/log-tags');
+const Sequelize = require('sequelize');
+const config = require('../app/config/environment').database;
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
+
 
 const agencies = [
   { id: 1, name: 'Ennevelin' },
@@ -57,10 +61,51 @@ module.exports = () => {
   const bulkCreate = (data, model) => model.bulkCreate(data);
 
   return Promise.resolve()
-    .then(() => bulkCreate(agencies, models.Agency))
-    .then(() => bulkCreate(users, models.User))
-    .then(() => bulkCreate(categories, models.Category))
-    .then(() => bulkCreate(questions, models.Question))
-    .then(() => bulkCreate([], models.Response))
+    .then(() => {
+      sequelize.query('SELECT * FROM `agencies`', { type: sequelize.QueryTypes.SELECT})
+        .then(agenciesResult => {
+          console.log('agencies count: '+agenciesResult.length);
+          if (agenciesResult.length == 0)
+            bulkCreate(agencies, models.Agency);
+        })
+        .then(() => {
+          sequelize.query('SELECT * FROM `users`', { type: sequelize.QueryTypes.SELECT})
+            .then(usersResult => {
+              console.log('users count: '+usersResult.length);
+              if (usersResult.length == 0)
+                bulkCreate(users, models.User);
+            })
+            .then(() => {
+              sequelize.query('SELECT * FROM `categories`', { type: sequelize.QueryTypes.SELECT})
+                .then(categoriesResult => {
+                  console.log('categories count: '+categoriesResult.length);
+                  if (categoriesResult.length == 0)
+                    bulkCreate(categories, models.Category);
+                })
+                .then(() => {
+                  sequelize.query('SELECT * FROM `questions`', { type: sequelize.QueryTypes.SELECT})
+                    .then(questionsResult => {
+                      console.log('questions count: '+questionsResult.length);
+                      if (questionsResult.length == 0)
+                        bulkCreate(questions, models.Question);
+                    })
+                    .then(() => {
+                      sequelize.query('SELECT * FROM `responses`', { type: sequelize.QueryTypes.SELECT})
+                        .then(responsesResult => {
+                          console.log('questions count: '+responsesResult.length);
+                          if (responsesResult.length == 0)
+                            bulkCreate([], models.Response);
+                        });
+                    });
+
+                });
+            });
+        });
+
+
+
+
+    })
     .then(() => `${logTags.StartupInfo} Seed data inserted`);
+
 };
