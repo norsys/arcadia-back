@@ -25,7 +25,8 @@ const categories = [
   { id: 4, name: 'CONNEXION' },
   { id: 5, name: 'FONDATION' },
   { id: 6, name: 'VIE DE GROUPE' },
-  { id: 7, name: 'RH' }
+  { id: 7, name: 'RH' },
+	{ id: 8, name: 'NAF' }
 ];
 
 const questions = [
@@ -49,11 +50,14 @@ const questions = [
   { id: 18, category_id: 6, question: 'EN %, combien de personnes ont suivi une formation en 2016 ?', response: null, inputType: 'TEXT' },
   { id: 19, category_id: 7, question: 'Cites le nom de la RH agence ?', response: null, inputType: 'TEXT' },
   { id: 20, category_id: 7, question: 'Cites au moins 3 vidéos norsys ?', response: null, inputType: 'TEXT' },
-  { id: 21, category_id: 7, question: 'Cites un dispositif mis en place au sein de norsys pour favoriser l\'équilibre vie pro/vie perso ?', response: null, inputType: 'TEXT' }
+  { id: 21, category_id: 7, question: 'Cites un dispositif mis en place au sein de norsys pour favoriser l\'équilibre vie pro/vie perso ?', response: null, inputType: 'TEXT' },
+  { id: 22, category_id: 8, question: 'oui ou non ?', response: null, inputType: 'BOOLEAN' },
+  { id: 23, category_id: 8, question: 'plate préférer ?', response: null, inputType: 'TEXT' }
 ];
 
 const users = [
-  { id: 1, email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', sex: 'M', agence_id: 1, city: 'Lille', avatar: 'avatar-1' }
+  { id: 1, email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', sex: 'M', agence_id: 1, city: 'Lille', avatar: 'avatar-1' },
+  { id: 2, email: 'yaittaleb@pirat.fr', password: 'yaittaleb', firstName: 'yaittaleb', lastName: 'yaittaleb', nickName: 'yaittaleb', sex: 'M', agence_id: 8, city: 'Marrakech', avatar: 'avatar-1' }
 ];
 
 
