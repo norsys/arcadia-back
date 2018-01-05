@@ -24,6 +24,10 @@ module.exports = {
   },
   create(options) {
     var base64Data = options.image.replace(/^data:image\/.*;base64,/, '');
+    var tmpDirectory = 'C:\\tmp';
+    if (!fs.existsSync(tmpDirectory)){
+      fs.mkdirSync(tmpDirectory);
+    }
     try {
       fs.writeFileSync(path.join(config.imagesFolder, options.name + '.tmp'), base64Data, 'base64');
       im.resize({
