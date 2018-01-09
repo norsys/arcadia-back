@@ -2,7 +2,7 @@
 
 module.exports = {
   port: process.env.PORT || 80,
-
+  imagesFolder: './/tmp',
   database: {
     username: process.env.DB_USER || 'arcadia',
     password: process.env.DB_PASS ||'arcadia',
