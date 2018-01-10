@@ -12,7 +12,7 @@ const expressSettings = app => {
 
   // Skip logging on test mode
   if (app.get('env') !== 'test') {
-    //app.use(morgan());
+    app.use(morgan('dev'));
   }
 
 };
