@@ -27,12 +27,22 @@ const mergeParams = req => {
 };
 
 module.exports = {
-  http(apiMethod) {
+  http(apiMethod,isAllUsersRequest = false,isFindUserByIdRequest = false) {
     return (req, res, next) => {
       apiMethod(mergeParams(req))
         .then(result => {
           let statusCode = result.statusCode || 200;
           let body = result.body || result;
+          if (isAllUsersRequest){
+              let users = JSON.parse(JSON.stringify(body));
+              users.forEach(user=> delete user.password);
+              body=users;
+          }
+          if (isFindUserByIdRequest){
+            let userById = JSON.parse(JSON.stringify(body));
+            delete  userById.password;
+            body=userById;
+          }
           delete result.statusCode;
           res.status(statusCode).json(body);
         })

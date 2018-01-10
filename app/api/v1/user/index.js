@@ -8,12 +8,12 @@ const e = require('../../../components/errors');
 
 router.get('/',
   api.isAuthenticated(),
-  api.http(ctrl.index));
+  api.http(ctrl.index,true));
 
 router.get('/:id',
   api.isAuthenticated(),
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
-  api.http(ctrl.show));
+  api.http(ctrl.show,false,true));
 router.post('/',
   api.checkParams(v.genChecker('email', e.get('NameLength'), v.lenGt(2))),
   api.http(ctrl.create));
