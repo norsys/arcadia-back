@@ -19,7 +19,7 @@ module.exports = () => {
   // Create a token for request body
   morgan.token('body', (req) => {
     if (req.method.toUpperCase() === 'POST' || req.method.toUpperCase() === 'PUT') {
-      return `[Body] ${JSON.stringify(req.body)}`;
+      return `[Body]`;
     }
   });
 
