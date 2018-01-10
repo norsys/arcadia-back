@@ -22,7 +22,7 @@ const setup = () => {
         if (incorrectPassword) {
           return done(new errors.BadRequest(errors.Codes.IncorrectPassword));
         }
-
+        user.password=util.passwordHash(password);
         return done(null, user);
       })
       .catch(err => done(err));
