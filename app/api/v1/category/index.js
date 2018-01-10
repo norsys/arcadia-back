@@ -6,6 +6,7 @@ const api = require('../../');
 const v = require('../../../components/param-validator');
 const e = require('../../../components/errors');
 
+/*cette methode n'est jamais appelée*/
 router.get('/',
   api.isAuthenticated(),
   api.http(ctrl.index));
