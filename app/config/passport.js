@@ -22,7 +22,8 @@ const setup = () => {
         if (incorrectPassword) {
           return done(new errors.BadRequest(errors.Codes.IncorrectPassword));
         }
-        return done(null, user);
+        done(null, user);
+        return null;
       })
       .catch(err => done(err));
   }));
