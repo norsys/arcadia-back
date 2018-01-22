@@ -26,7 +26,7 @@ const categories = [
   { id: 5, name: 'FONDATION' },
   { id: 6, name: 'VIE DE GROUPE' },
   { id: 7, name: 'RH' },
-	{ id: 8, name: 'NAF' }
+  { id: 8, name: 'NAF' }
 ];
 
 const questions = [

@@ -2,6 +2,7 @@
 
 const models = require('../models');
 const errors = require('../components/errors');
+
 const parseStr = str => {
   const ret = parseInt(str, 10);
   return isNaN(ret) ? undefined : ret;
@@ -56,7 +57,8 @@ const update = (options) => {
 const destroy = options => {
   return models['Response'].destroy({
     where: {
-      id: parseStr(options.id)
+      user_id: options.context.user.id,
+      question_id:  parseStr(options.question_id)
     }
   }).then(count => {
     return count ? Promise.resolve() : Promise.reject(errors.code('NotFound'));

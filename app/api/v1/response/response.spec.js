@@ -99,4 +99,73 @@ describe('/v1/responses', () => {
         });
     });
   });
-});
+
+    describe('PUT /v1/users/:user_id/responses/:question_id', () => {
+        let responses = [{ id: 2, response: '1 2 3 SOLEIL !', user_id: 1 , question_id: 1 }];
+        before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
+        after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
+
+        it('should return 200 status code and an updated object', done => {
+            request(app)
+                .put(helper.bindAccessToken('/v1/users/1/responses/1'))
+                .send({ 'response':'reponse updated' })
+                .expect(200)
+                .end((err, res) => {
+                    if (err) throw err;
+                    res.body.should.be.property('response', 'reponse updated');
+                    res.body.should.be.property('id', 2);
+                    done();
+                });
+        });
+
+        it('should return 400 status code on invalid id', done => {
+            request(app)
+                .put(helper.bindAccessToken('/v1/users/1/responses/abc'))
+                .expect(400)
+                .end((err, res) => {
+                    if (err) throw err;
+                    res.body[0].errorCode.should.be.equal('BadRequest');
+                    done();
+                });
+        });
+
+    });
+
+    describe('DELETE /v1/users/:user_id/responses/:question_id', () => {
+        let responses = [{ id: 3, response: '1 2 3 SOLEIL !', user_id: 1 , question_id: 1 }];
+        before('Insert seed data', () => helper.insertSeed(models['Response'], responses));
+        after('Delete seed data', () => helper.deleteSeed(models['Response'], responses));
+
+        it('should return 204 status code', done => {
+            request(app)
+                .delete(helper.bindAccessToken('/v1/users/1/responses/1'))
+                .expect(204)
+                .end((err, res) => {
+                    if (err) throw err;
+                    done();
+                });
+        });
+
+       it('should return 400 status code on invalid id', done => {
+            request(app)
+                .delete(helper.bindAccessToken('/v1/users/1/responses/abc'))
+                .expect(400)
+                .end((err, res) => {
+                    if (err) throw err;
+                    res.body[0].errorCode.should.be.equal('BadRequest');
+                    done();
+                });
+        });
+
+        it('should return 404 status code on no id', done => {
+            request(app)
+                .delete(helper.bindAccessToken('/v1/users/1/responses/999'))
+                .expect(404)
+                .end((err, res) => {
+                    if (err) throw err;
+                    res.body[0].errorCode.should.be.equal('NotFound');
+                    done();
+                });
+        });
+    });
+})

@@ -20,5 +20,18 @@ router.post('/',
   api.checkParams(v.genChecker('response', e.get('NameLength'), v.lenGt(2))),
   api.http(ctrl.create));
 
+router.put('/:question_id',
+  api.isAuthenticated(),
+  api.checkParams(
+    v.genChecker('question_id', e.get('BadRequest'), v.num),
+    v.genChecker('response', e.get('NameLength'), v.lenGt(2))),
+  api.http(ctrl.update));
+
+router.delete('/:question_id',
+  api.isAuthenticated(),
+  api.checkParams(v.genChecker('question_id', e.get('BadRequest'), v.num)),
+  api.http(ctrl.destroy));
+
+
 
 module.exports = router;
