@@ -17,10 +17,7 @@ module.exports = function (sequelize, DataTypes) {
     sex: {
       type: DataTypes.STRING
     },
-    agenceId: {
-      type: DataTypes.STRING
-    },
-    city: {
+    agence_id: {
       type: DataTypes.STRING
     },
     avatar: {
