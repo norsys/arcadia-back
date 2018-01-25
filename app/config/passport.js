@@ -12,7 +12,7 @@ const setup = () => {
     passwordField: 'password'
   };
 
-  //comment
+  //add comment
   passport.use(new LocalStrategy(options, (email, password, done) => {
     return models.User.findOne({ where: { email: email } })
       .then(user => {
