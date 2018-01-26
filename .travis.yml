@@ -5,7 +5,8 @@ node_js:
   - "7"
 services:
   - docker
-
+git:
+  depth: 9000
 install:
   - npm install
   #add comment
