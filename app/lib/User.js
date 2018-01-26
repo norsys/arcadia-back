@@ -33,7 +33,11 @@ const update = (options) => {
     .then(user => {
       if (!user) throw errors.NotFound();
 
-      for (let key in options) user[key] = options[key];
+      for (let key in options) {
+        if (key!='password'){
+          user[key] = options[key];
+        }
+      }
       return user.save();
     })
     .then(() => show(options))
