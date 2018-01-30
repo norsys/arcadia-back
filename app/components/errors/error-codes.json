@@ -6,13 +6,15 @@
   {
     "code": "NameLength",
     "message": {
-      "en": "Name should be greater than 2"
+      "en": "Name should be greater than 2",
+      "fr": "Votre texte doit contenir au moins 3 caractères"
     }
   },
   {
     "code": "EmailPattern",
     "message": {
-      "en": "Email pattern is invalid"
+      "en": "Email pattern is invalid",
+      "fr": "Votre Email est invalide"
     }
   },
   {
