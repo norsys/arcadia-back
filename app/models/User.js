@@ -41,6 +41,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     startedDate: {
       type: DataTypes.STRING
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN
     }
   });
 
