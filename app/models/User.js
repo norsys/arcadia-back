@@ -14,9 +14,6 @@ module.exports = function (sequelize, DataTypes) {
     nickName: {
       type: DataTypes.STRING
     },
-    sex: {
-      type: DataTypes.STRING
-    },
     agence_id: {
       type: DataTypes.STRING
     },

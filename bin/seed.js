@@ -56,8 +56,8 @@ const questions = [
 ];
 
 const users = [
-  { id: 1, email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', sex: 'M', agence_id: 1, city: 'Lille', avatar: 'avatar-1' },
-  { id: 2, email: 'yaittaleb@pirat.fr', password: 'yaittaleb', firstName: 'yaittaleb', lastName: 'yaittaleb', nickName: 'yaittaleb', sex: 'M', agence_id: 8, city: 'Marrakech', avatar: 'avatar-1' }
+  { id: 1, email: 'albator@pirat.fr', password: 'albator', firstName: 'Franklin', lastName: 'Harlock', nickName: 'albator', agence_id: 1, city: 'Lille', avatar: 'avatar-1' },
+  { id: 2, email: 'yaittaleb@pirat.fr', password: 'yaittaleb', firstName: 'yaittaleb', lastName: 'yaittaleb', nickName: 'yaittaleb', agence_id: 8, city: 'Marrakech', avatar: 'avatar-1' }
 ];
 
 
