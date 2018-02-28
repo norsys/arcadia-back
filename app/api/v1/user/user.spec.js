@@ -11,9 +11,9 @@ describe('/v1/users', () => {
   before('Sync database', () => helper.syncDb());
 
   describe('GET /v1/users', () => {
-    let users = [{"firstName":"Vinson","lastName":"Shelley","postalCode":"4000","nickName":"Johnston","sex":"F","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"},
-        {"firstName":"Burch","lastName":"Cullen","postalCode":"4000","nickName":"Duran","sex":"F","agence_id":1,"avatar":"Fusce","email":"egestas@quam.ca"},
-        {"firstName":"Bell","lastName":"Sade","postalCode":"4000","nickName":"Mcintosh","sex":"F","agence_id":1,"avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];
+    let users = [{"postalCode":"4000","nickName":"Johnston","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"},
+        {"postalCode":"4000","nickName":"Duran","agence_id":1,"avatar":"Fusce","email":"egestas@quam.ca"},
+        {"postalCode":"4000","nickName":"Mcintosh","agence_id":1,"avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -35,9 +35,9 @@ describe('/v1/users', () => {
   });
 
   describe('GET /v1/users/:id', () => {
-      let users = [{"firstName":"Vinson","lastName":"Shelley","postalCode":"4000","nickName":"Johnston","sex":"F","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"},
-          {"firstName":"Burch","lastName":"Cullen","postalCode":"4000","nickName":"Duran","sex":"F","agence_id":1,"avatar":"Fusce","email":"egestas@quam.ca"},
-          {"firstName":"Bell","lastName":"Sade","postalCode":"4000","nickName":"Mcintosh","sex":"F","agence_id":1,"avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];
+      let users = [{"postalCode":"4000","nickName":"Johnston","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"},
+          {"postalCode":"4000","nickName":"Duran","agence_id":1,"avatar":"Fusce","email":"egestas@quam.ca"},
+          {"postalCode":"4000","nickName":"Mcintosh","agence_id":1,"avatar":"Nunc","email":"scelerisque.sed.sapien@Cras.co.uk"}];
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -77,7 +77,7 @@ describe('/v1/users', () => {
   });
 
   describe('POST /v1/users', () => {
-    let users = [{"firstName":"Vinson","lastName":"Shelley","nickName":"Johnston","postalCode":"4000","sex":"F","avatar":"mi","email":"mauris@feugiat.co.uk"}];
+    let users = [{"nickName":"Johnston","postalCode":"4000","avatar":"mi","email":"mauris@feugiat.co.uk"}];
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
     it('should return 201 status code and new id', done => {
@@ -119,7 +119,7 @@ describe('/v1/users', () => {
   });
 
   describe('PUT /v1/users/:id', () => {
-    let users = [{"id":100,"firstName":"toto","lastName":"Shelley","postalCode":"4000","nickName":"Johnston","sex":"F",agence_id:1,"avatar":"mi","email":"mauris@feugiat.co.uk"}];
+    let users = [{"id":100,"postalCode":"4000","nickName":"Johnston",agence_id:1,"avatar":"mi","email":"mauris@feugiat.co.uk"}];
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 
@@ -161,7 +161,7 @@ describe('/v1/users', () => {
   });
 
   describe('DELETE /v1/users/:id', () => {
-    let users = [{id:300,"firstName":"Vinson","lastName":"Shelley","postalCode":"4000","nickName":"Johnston","sex":"F","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"}];
+    let users = [{id:300,"postalCode":"4000","nickName":"Johnston","agence_id":1,"avatar":"mi","email":"mauris@feugiat.co.uk"}];
     before('Insert seed data', () => helper.insertSeed(models['User'], users));
     after('Delete seed data', () => helper.deleteSeed(models['User'], users));
 

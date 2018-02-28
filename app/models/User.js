@@ -5,12 +5,6 @@ const util = require('../components/util');
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define('User', {
 
-    firstName: {
-      type: DataTypes.STRING
-    },
-    lastName: {
-      type: DataTypes.STRING
-    },
     nickName: {
       type: DataTypes.STRING
     },
