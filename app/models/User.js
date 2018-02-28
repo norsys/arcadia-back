@@ -14,6 +14,9 @@ module.exports = function (sequelize, DataTypes) {
     nickName: {
       type: DataTypes.STRING
     },
+    postalCode: {
+      type: DataTypes.STRING
+    },
     agence_id: {
       type: DataTypes.STRING
     },
