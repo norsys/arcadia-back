@@ -1,0 +1,5 @@
+
+ALTER TABLE Users ADD COLUMN postalCode INTEGER;
+
+ALTER TABLE Users DROP COLUMN firstName;
+ALTER TABLE Users DROP COLUMN lastName;
