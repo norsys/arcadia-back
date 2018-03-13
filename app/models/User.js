@@ -1,5 +1,4 @@
 'use strict';
-
 const util = require('../components/util');
 
 module.exports = function (sequelize, DataTypes) {
