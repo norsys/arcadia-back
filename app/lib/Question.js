@@ -2,15 +2,21 @@
 
 const models = require('../models');
 const errors = require('../components/errors');
+const Sequelize = require('sequelize');
+
 const parseStr = str => {
   const ret = parseInt(str, 10);
   return isNaN(ret) ? undefined : ret;
 };
 const index = options => {
-  return models['Question'].findAll({
-    limit: parseStr(options.limit),
-    offset: parseStr(options.offset)
-  });
+    return models['Question'].findAll({
+        include: [{
+            model: models['Category'] ,
+            where: { id: Sequelize.col('question.category_id') }
+        }],
+        limit: parseStr(options.limit),
+        offset: parseStr(options.offset)
+    });
 };
 const show = options => {
   return models['Question'].findOne({
