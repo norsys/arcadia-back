@@ -2,12 +2,17 @@
 
 const models = require('../models');
 const errors = require('../components/errors');
+const Sequelize = require('sequelize');
 const parseStr = str => {
   const ret = parseInt(str, 10);
   return isNaN(ret) ? undefined : ret;
 };
 const index = options => {
   return models['User'].findAll({
+      include: [{
+          model: models['Agency'] ,
+          where: { id: Sequelize.col('user.agence_id') }
+      }],
     limit: parseStr(options.limit),
     offset: parseStr(options.offset)
   });
