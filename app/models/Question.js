@@ -10,10 +10,12 @@ module.exports = function (sequelize, DataTypes) {
         },
         inputType: {
             type: DataTypes.ENUM('CAMERA','TEXT')
-        }
+        },
+        timestamps: false,
     });
     Question.associate = function (models) {
         Question.belongsTo(models.Category, { foreignKey: 'category_id', targetKey: 'id' });
+        Question.belongsTo(models.Agency, { foreignKey: 'agence_id', targetKey: 'id' });
 
     };
 

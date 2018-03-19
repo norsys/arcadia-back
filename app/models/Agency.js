@@ -5,7 +5,8 @@ module.exports = function (sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING,
       unique: true
-    }
+    },
+      createdAt: false
   });
   return Agency;
 };

@@ -4,7 +4,8 @@ module.exports = function (sequelize, DataTypes) {
   const Response = sequelize.define('Response', {
     response: {
       type: DataTypes.STRING,
-    }
+    },
+      timestamps: false,
 
   });
   Response.associate = function (models) {
