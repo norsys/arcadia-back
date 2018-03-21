@@ -44,5 +44,9 @@ module.exports = {
           return Promise.reject(errors.NotFound(`question id: ${options.id} is not found`));
         throw err;
       });
-  }
+  },
+    show1(options) {
+        return Promise.resolve()
+            .then(() => Question.show1(options));
+    }
 };

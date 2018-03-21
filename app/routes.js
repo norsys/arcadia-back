@@ -10,6 +10,7 @@ module.exports = app => {
   app.use('/v1/agencies', require('./api/v1/agency'));
   app.use('/v1/categories', require('./api/v1/category'));
   app.use('/v1/questions', require('./api/v1/question'));
+  app.use('/v1/questions/agency/:agency_id', require('./api/v1/question'));
   app.use('/v1/users/:user_id/responses', require('./api/v1/response'));
   app.use('/v1/images', require('./api/v1/images'));
   

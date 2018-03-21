@@ -69,4 +69,23 @@ const destroy = options => {
         return count ? Promise.resolve() : Promise.reject(errors.code('NotFound'));
     });
 };
-module.exports = {index, show, create, update, destroy};
+const show1 = options => {
+    return models['Question'].findAll({
+        include: [{
+            model: models['Category'],
+            where: {id: Sequelize.col('question.category_id')}
+        },
+            {
+                model: models['Agency'],
+                where: {id: Sequelize.col('question.agence_id')}
+            }
+        ],
+        limit: parseStr(options.limit),
+        offset: parseStr(options.offset),
+        where: {
+            agence_id: parseStr(options.agence_id)
+        }
+    });
+};
+
+module.exports = {index, show, create, update, destroy, show1};

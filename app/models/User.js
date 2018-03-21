@@ -43,8 +43,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN
-    },
-      timestamps: false,
+    }
   });
 
   User.associate = function (models) {

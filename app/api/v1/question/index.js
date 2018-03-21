@@ -31,4 +31,9 @@ router.delete('/:id',
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
   api.http(ctrl.destroy));
 
+/* get questions by agency*/
+router.get('/agency/:agence_id',
+    api.isAuthenticated(),
+    api.http(ctrl.show1));
+
 module.exports = router;
