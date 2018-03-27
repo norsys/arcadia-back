@@ -23,6 +23,7 @@ module.exports = {
     }
   },
   create(options) {
+    console.log('options :' + JSON.stringify(options));
     var base64Data = options.image.replace(/^data:image\/.*;base64,/, '');
     if (!fs.existsSync(config.imagesFolder)){
       fs.mkdirSync(config.imagesFolder);

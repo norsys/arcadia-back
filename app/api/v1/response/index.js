@@ -8,7 +8,11 @@ const e = require('../../../components/errors');
 
 router.get('/',
   api.isAuthenticated(),
-  api.http(ctrl.index));
+  api.http(ctrl.index1));
+
+router.get('/users/:user_id',
+    api.isAuthenticated(),
+    api.http(ctrl.index));
 
 router.get('/:question_id',
   api.isAuthenticated(),

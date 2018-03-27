@@ -44,5 +44,9 @@ module.exports = {
           return Promise.reject(errors.NotFound(`response id: ${options.id} is not found`));
         throw err;
       });
-  }
+  },
+    index1(options) {
+        return Promise.resolve()
+            .then(() => Response.index1(options));
+    }
 };

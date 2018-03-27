@@ -10,15 +10,15 @@ VALUES
  (7,'Grenoble',NOW(),NOW()),
  (8,'Marrakech',NOW(),NOW());
 
-INSERT into Categories (id,name,createdAt,updatedAt)
+INSERT into Categories (id,name,image,imageZoom,createdAt,updatedAt)
 VALUES
- (1,'CONVIVALITE',NOW(),NOW()),
- (2,'BUSINESS AGENCE',NOW(),NOW()),
- (3,'PRATIQUES',NOW(),NOW()),
- (4,'CONNEXION',NOW(),NOW()),
- (5,'FONDATION',NOW(),NOW()),
- (6,'VIE DE GROUPE',NOW(),NOW()),
- (7,'RH',NOW(),NOW());
+ (1,'CONVIVALITE','planet-1.png','planet-1-zoom.png',NOW(),NOW()),
+ (2,'BUSINESS AGENCE','planet-2.png','planet-2-zoom.png',NOW(),NOW()),
+ (3,'PRATIQUES','planet-3.png','planet-3-zoom.png',NOW(),NOW()),
+ (4,'CONNEXION','planet-4.png','planet-4-zoom.png',NOW(),NOW()),
+ (5,'FONDATION','planet-5.png','planet-5-zoom.png',NOW(),NOW()),
+ (6,'VIE DE GROUPE','planet-6.png','planet-6-zoom.png',NOW(),NOW()),
+ (7,'RH','planet-7.png','planet-7-zoom.png',NOW(),NOW());
  
 
 INSERT INTO Questions(id,category_id,question,response,inputType,createdAt,updatedAt)
