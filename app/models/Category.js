@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       }
   });
   Category.associate = function (models) {
-    Category.hasMany(models.Question, { as: 'Questions', foreignKey: 'category_id' });
+    Category.hasMany(models.Question, { as: 'Questions', foreignKey: 'category_id', onDelete: 'cascade' });
   };
   return Category;
 };

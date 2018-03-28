@@ -24,7 +24,7 @@ const categories = [
   { id: 3, name: 'PRATIQUES', image: 'planet-3.png', imageZoom: 'planet-3-zoom.png' },
   { id: 4, name: 'CONNEXION' , image: 'planet-4.png', imageZoom: 'planet-4-zoom.png'},
   { id: 5, name: 'FONDATION' , image: 'planet-5.png', imageZoom: 'planet-5-zoom.png'},
-  { id: 6, name: 'VIE DE GROUPE' , image: 'planet-5.png', imageZoom: 'planet-6-zoom.png'},
+  { id: 6, name: 'VIE DE GROUPE' , image: 'planet-6.png', imageZoom: 'planet-6-zoom.png'},
   { id: 7, name: 'RH' , image: 'planet-7.png', imageZoom: 'planet-7-zoom.png'},
   { id: 8, name: 'NAF', image: 'planet-8.png', imageZoom: 'planet-8-zoom.png' }
 ];

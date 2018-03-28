@@ -25,6 +25,10 @@ const index = options => {
 };
 const show = options => {
     return models['Question'].findOne({
+        include: [{
+            model: models['Category'],
+            where: {id: Sequelize.col('question.category_id')}
+        }],
         where: {
             id: parseStr(options.id)
         }
