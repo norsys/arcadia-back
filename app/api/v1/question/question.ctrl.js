@@ -45,8 +45,8 @@ module.exports = {
         throw err;
       });
   },
-    show1(options) {
-        return Promise.resolve()
-            .then(() => Question.show1(options));
-    }
+  show1(options) {
+    return Promise.resolve()
+      .then(() => Question.show1(options));
+  }
 };

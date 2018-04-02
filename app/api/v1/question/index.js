@@ -33,7 +33,7 @@ router.delete('/:id',
 
 /* get questions by agency*/
 router.get('/agency/:agence_id',
-    api.isAuthenticated(),
-    api.http(ctrl.show1));
+  api.isAuthenticated(),
+  api.http(ctrl.show1));
 
 module.exports = router;

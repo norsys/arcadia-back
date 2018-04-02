@@ -45,8 +45,8 @@ module.exports = {
         throw err;
       });
   },
-    index1(options) {
-        return Promise.resolve()
-            .then(() => Response.index1(options));
-    }
+  index1(options) {
+    return Promise.resolve()
+      .then(() => Response.index1(options));
+  }
 };

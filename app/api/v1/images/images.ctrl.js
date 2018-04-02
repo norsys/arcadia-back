@@ -52,6 +52,6 @@ module.exports = {
     fs.unlinkSync('.//tmp\\'+req.params.name, (err) => {
       if (err) throw err;
       return res.end(200);
-    } )
+    });
   }
 };

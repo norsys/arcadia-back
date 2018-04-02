@@ -9,10 +9,10 @@ const parseStr = str => {
 };
 const index = options => {
   return models['User'].findAll({
-      include: [{
-          model: models['Agency'] ,
-          where: { id: Sequelize.col('user.agence_id') }
-      }],
+    include: [{
+      model: models['Agency'] ,
+      where: { id: Sequelize.col('user.agence_id') }
+    }],
     limit: parseStr(options.limit),
     offset: parseStr(options.offset)
   });
