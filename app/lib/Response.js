@@ -11,29 +11,29 @@ const parseStr = str => {
 const index = options => {
   return models['Response'].findAll({
     limit: parseStr(options.limit),
-	offset: parseStr(options.offset),
-	where: {
-	  user_id: parseStr(options.context.user.id)
+    offset: parseStr(options.offset),
+    where: {
+    user_id: parseStr(options.context.user.id)
     },
-	include: [{
-	  model: models['Question'],
-	  where: {
-	    id: Sequelize.col('response.question_id')
-	  },
-	  include: [{
-	    model: models['Category'],
-		where: {id: Sequelize.col('question.category_id')}
-	  }]
-	},
-	{
-	  model: models['User'],
-	  where: {id: Sequelize.col('response.user_id')},
-	  include: [{
-	    model: models['Agency'],
-		where: {id: Sequelize.col('user.agence_id')}
-	  }]
-	}
-	]
+    include: [{
+      model: models['Question'],
+      where: {
+        id: Sequelize.col('response.question_id')
+      },
+    include: [{
+        model: models['Category'],
+        where: {id: Sequelize.col('question.category_id')}
+    }]
+    },
+    {
+      model: models['User'],
+      where: {id: Sequelize.col('response.user_id')},
+      include: [{
+        model: models['Agency'],
+        where: {id: Sequelize.col('user.agence_id')}
+      }]
+    }
+    ]
   });
 };
 const show = options => {
@@ -57,22 +57,19 @@ const update = (options) => {
     .then(() => show(options))
     .then(response => {
       if (!response) throw errors.NotFound();
-
       for (let key in options) response[key] = options[key];
-        return response.save();
-      })
-      .then(() => show(options))
-      .catch(err => {
-        if (err.name === 'SequelizeValidationError') {
-          return Promise.reject(errors.BadRequest(err.message));
-        }
-
-        if (err.name === 'SequelizeUniqueConstraintError') {
-          return Promise.reject(errors.Conflict(err.message));
-        }
-
-        return Promise.reject(err);
-      });
+      return response.save();
+    })
+    .then(() => show(options))
+    .catch(err => {
+      if (err.name === 'SequelizeValidationError') {
+        return Promise.reject(errors.BadRequest(err.message));
+      }
+      if (err.name === 'SequelizeUniqueConstraintError') {
+        return Promise.reject(errors.Conflict(err.message));
+      }
+      return Promise.reject(err);
+    });
 };
 const destroy = options => {
   return models['Response'].destroy({

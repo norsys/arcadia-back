@@ -10,18 +10,18 @@ const parseStr = str => {
 };
 const index = options => {
   return models['Question'].findAll({
-	include: [{
-	  model: models['Category'],
-	  where: {id: Sequelize.col('question.category_id')}
-	},
-	{
-	  model: models['Agency'],
-	  where: {id: Sequelize.col('question.agence_id')}
-	}
-	],
-	  limit: parseStr(options.limit),
-	  offset: parseStr(options.offset)
-	});
+    include: [{
+      model: models['Category'],
+      where: {id: Sequelize.col('question.category_id')}
+    },
+    {
+      model: models['Agency'],
+      where: {id: Sequelize.col('question.agence_id')}
+    }
+    ],
+      limit: parseStr(options.limit),
+      offset: parseStr(options.offset)
+    });
 };
 const show = options => {
   return models['Question'].findOne({
@@ -77,18 +77,18 @@ const show1 = options => {
   return models['Question'].findAll({
     include: [{
       model: models['Category'],
-        where: {id: Sequelize.col('question.category_id')}
+      where: {id: Sequelize.col('question.category_id')}
     },
     {
       model: models['Agency'],
       where: {id: Sequelize.col('question.agence_id')}
     }
     ],
-      limit: parseStr(options.limit),
-      offset: parseStr(options.offset),
-      where: {
-        agence_id: parseStr(options.agence_id)
-      }
+    limit: parseStr(options.limit),
+    offset: parseStr(options.offset),
+    where: {
+      agence_id: parseStr(options.agence_id)
+    }
   });
 };
 
