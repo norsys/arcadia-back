@@ -45,5 +45,13 @@ module.exports = {
       return Promise.resolve()
         .then(() => Object.assign({ statusCode: 500 }));
     }
+  },
+  delete(req,res){
+    console.log('delete image back ctrl');
+    console.log(+req);
+    fs.unlinkSync('.//tmp\\'+req.params.name, (err) => {
+      if (err) throw err;
+      return res.end(200);
+    } )
   }
 };

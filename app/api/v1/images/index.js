@@ -12,5 +12,7 @@ router.post('/',
   api.isAuthenticated(),
   api.http(ctrl.create));
 
+  router.get('/delete/:name', ctrl.delete);
+
 
 module.exports = router;
