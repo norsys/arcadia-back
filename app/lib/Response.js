@@ -13,17 +13,17 @@ const index = options => {
     limit: parseStr(options.limit),
     offset: parseStr(options.offset),
     where: {
-    user_id: parseStr(options.context.user.id)
+      user_id: parseStr(options.context.user.id)
     },
     include: [{
       model: models['Question'],
       where: {
         id: Sequelize.col('response.question_id')
       },
-    include: [{
+      include: [{
         model: models['Category'],
         where: {id: Sequelize.col('question.category_id')}
-    }]
+      }]
     },
     {
       model: models['User'],

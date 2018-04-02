@@ -19,9 +19,9 @@ const index = options => {
       where: {id: Sequelize.col('question.agence_id')}
     }
     ],
-      limit: parseStr(options.limit),
-      offset: parseStr(options.offset)
-    });
+    limit: parseStr(options.limit),
+    offset: parseStr(options.offset)
+  });
 };
 const show = options => {
   return models['Question'].findOne({
