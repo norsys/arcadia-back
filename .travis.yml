@@ -14,5 +14,5 @@ script: npm test
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" hub-docker.norsys.fr
-  - docker build -t hub-docker.norsys.fr/norsys/arcadia-back .
-  - docker push hub-docker.norsys.fr/norsys/arcadia-back
+  - docker build -t hub-docker.norsys.fr/norsys/arcadia-back:$TRAVIS_BRANCH .
+  - docker push hub-docker.norsys.fr/norsys/arcadia-back:$TRAVIS_BRANCH
