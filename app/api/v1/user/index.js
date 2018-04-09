@@ -8,12 +8,13 @@ const e = require('../../../components/errors');
 
 router.get('/',
   api.isAuthenticated(),
-  api.http(ctrl.index,true));
+  api.http(ctrl.index, true));
 
 router.get('/:id',
   api.isAuthenticated(),
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
-  api.http(ctrl.show,false,true));
+  api.http(ctrl.show, false, true));
+
 router.post('/',
   api.checkParams(v.genChecker('email', e.get('NameLength'), v.lenGt(2))),
   api.http(ctrl.create));
@@ -28,5 +29,12 @@ router.delete('/:id',
   api.isAuthenticated(),
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
   api.http(ctrl.destroy));
+
+router.put('/passwordupdate/:id',
+  api.http(ctrl.resetPassword));
+
+router.get('/getbyemail/:email', 
+  api.http(ctrl.showByEmail));
+
 
 module.exports = router;
