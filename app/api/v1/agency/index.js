@@ -30,4 +30,5 @@ router.delete('/:id',
   api.checkParams(v.genChecker('id', e.get('BadRequest'), v.num)),
   api.http(ctrl.destroy));
 
+
 module.exports = router;

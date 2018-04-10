@@ -37,7 +37,6 @@ const update = (options) => {
     .then(() => show(options))
     .then(user => {
       if (!user) throw errors.NotFound();
-
       for (let key in options) {
         if (key!='password'){
           user[key] = options[key];
@@ -67,4 +66,35 @@ const destroy = options => {
     return count ? Promise.resolve() : Promise.reject(errors.code('NotFound'));
   });
 };
-module.exports = { index, show, create, update, destroy };
+const showByEmail = options => {
+  console.log('user.js ' + options.email)
+  return models['User'].findOne({
+    where: {
+      email: options.email
+    }
+  });
+};
+const updatePassword = (options) => {
+  return Promise.resolve()
+    .then(() => show(options))
+    .then(user => {
+      if (!user) throw errors.NotFound();
+      for (let key in options) {
+          user[key] = options[key];        
+      }
+      return user.save();
+    })
+    .then(() => show(options))
+    .catch(err => {
+      if (err.name === 'SequelizeValidationError') {
+        return Promise.reject(errors.BadRequest(err.message));
+      }
+
+      if (err.name === 'SequelizeUniqueConstraintError') {
+        return Promise.reject(errors.Conflict(err.message));
+      }
+
+      return Promise.reject(err);
+    });
+};
+module.exports = { index, show, create, update, destroy ,showByEmail , updatePassword};

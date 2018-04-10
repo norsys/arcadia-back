@@ -13,7 +13,7 @@ const agencies = [
   { id: 3, name: 'Paris' },
   { id: 4, name: 'Lyon' },
   { id: 5, name: 'Nantes' },
-  { id: 6, name: 'Angers' },
+  { id: 6, name: 'Tours' },
   { id: 7, name: 'Grenoble' },
   { id: 8, name: 'Marrakech' }
 ];
