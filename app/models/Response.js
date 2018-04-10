@@ -4,6 +4,9 @@ module.exports = function (sequelize, DataTypes) {
   const Response = sequelize.define('Response', {
     response: {
       type: DataTypes.STRING,
+    },
+    valide:{
+      type:DataTypes.BOOLEAN,
     }
   });
   Response.associate = function (models) {

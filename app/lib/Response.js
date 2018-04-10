@@ -44,6 +44,13 @@ const show = options => {
     }
   });
 };
+const showResponse = options => {
+  return models['Response'].findOne({
+    where: {    
+      id: parseStr(options.id)
+    }
+  });
+};
 const create = options => {
   return models['Response'].create(options).catch(err => {
     if (err.name === 'SequelizeUniqueConstraintError') {
@@ -54,13 +61,13 @@ const create = options => {
 };
 const update = (options) => {
   return Promise.resolve()
-    .then(() => show(options))
+    .then(() => showResponse(options))
     .then(response => {
       if (!response) throw errors.NotFound();
       for (let key in options) response[key] = options[key];
       return response.save();
     })
-    .then(() => show(options))
+    .then(() => showResponse(options))
     .catch(err => {
       if (err.name === 'SequelizeValidationError') {
         return Promise.reject(errors.BadRequest(err.message));
@@ -107,4 +114,4 @@ const index1 = options => {
   });
 };
 
-module.exports = {index, show, create, update, destroy, index1};
+module.exports = {index, show, create, update, destroy, index1,showResponse};
