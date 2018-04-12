@@ -4,11 +4,11 @@ module.exports = {
   port: process.env.PORT || 80,
   imagesFolder: './/tmp',
   database: {
-    username: process.env.DB_USER || 'arcadia',
-    password: process.env.DB_PASS ||'arcadia',
-    database: process.env.DB_NAME ||'arcadia_back',
-    host: process.env.DB_HOST ||'127.0.0.1',
-    port: process.env.DB_PORT ||32217,
+    username:  'root',
+    password: 'root',
+    database: 'arcadia',
+    host: '127.0.0.1',
+    port: 3306,
     dialect: 'mysql',
     logging: false,
     syncForce: false

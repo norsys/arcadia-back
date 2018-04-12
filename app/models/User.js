@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     agence_id: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER
     },
     avatar: {
       type: DataTypes.STRING
