@@ -7,5 +7,8 @@ ALTER TABLE Users ADD COLUMN isAdmin TINYINT(1);
 
 UPDATE `Agencies` SET `name`='Tours' WHERE `name`='Angers';
 
+ALTER TABLE Responses ADD COLUMN valide BOOLEAN;
+
+
 
 
