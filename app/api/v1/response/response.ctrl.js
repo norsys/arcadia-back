@@ -15,6 +15,15 @@ module.exports = {
         if (!response) return Promise.reject(errors.NotFound('response is not found'));
         return response;
       });
+  }
+  ,
+  showResponse(options) {
+    return Promise.resolve()
+      .then(() => Response.showResponse(options))
+      .then(response => {
+        if (!response) return Promise.reject(errors.NotFound('response is not found'));
+        return response;
+      });
   },
   create(options) {
     return Promise.resolve()

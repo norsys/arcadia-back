@@ -14,8 +14,6 @@ module.exports = app => {
   app.use('/v1/responses', require('./api/v1/response'));
   app.use('/v1/responses/users/:user_id', require('./api/v1/response'));
   app.use('/v1/images', require('./api/v1/images'));
-  
-
   app.get('/', (req, res) => res.json({message: 'Hello aracadia-back'}));
 
   app.use(api.error404);
