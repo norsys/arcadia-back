@@ -7,7 +7,6 @@ const im = require('imagemagick');
 module.exports = {
 
   show(req, res) {
-    console.log(req.params.name);
     try {
       var image = fs.readFileSync(path.join(config.imagesFolder, req.params.name));
 
@@ -42,7 +41,6 @@ module.exports = {
   },
   delete(req,res){
     console.log('delete image back ctrl');
-    console.log(+req);
     fs.unlinkSync('.//tmp\\'+req.params.name, (err) => {
       if (err) throw err;
       return res.end(200);

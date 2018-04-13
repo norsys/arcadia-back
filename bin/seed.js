@@ -68,14 +68,12 @@ module.exports = () => {
     .then(() => {
       sequelize.query('SELECT * FROM `agencies`', { type: sequelize.QueryTypes.SELECT})
         .then(agenciesResult => {
-          console.log('agencies count: '+agenciesResult.length);
           if (agenciesResult.length == 0)
             bulkCreate(agencies, models.Agency);
         })
         .then(() => {
           sequelize.query('SELECT * FROM `users`', { type: sequelize.QueryTypes.SELECT})
             .then(usersResult => {
-              console.log('users count: '+usersResult.length);
               if (usersResult.length == 0)
                 bulkCreate(users, models.User);
             })

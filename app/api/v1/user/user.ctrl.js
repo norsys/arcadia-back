@@ -82,7 +82,6 @@ module.exports = {
       }
     });
 
-    console.log('new password after reset >> = == = = = = = = =' + options.password)
     return Promise.resolve()
       .then(() => User.updatePassword(options))
       .catch(err => {
