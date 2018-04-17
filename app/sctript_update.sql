@@ -1,7 +1,7 @@
 ALTER TABLE Categories ADD COLUMN image VARCHAR(255) DEFAULT '';
-ALTER TABLE Categories ADD COLUMN image VARCHAR(255) DEFAULT '';
+ALTER TABLE Categories ADD COLUMN imageZoom VARCHAR(255) DEFAULT '';
 
-ALTER TABLE Questions ADD COLUMN agence_id integer;
+ALTER TABLE Questions ADD COLUMN agence_id integer DEFAULT 1;
 
 ALTER TABLE Users ADD COLUMN isAdmin TINYINT(1);
 
